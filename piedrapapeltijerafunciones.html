@@ -8,7 +8,7 @@
             function aleatorio(min, max){
                 return Math.floor(Math.random() * (max - min + 1) + min) //formula para calcular un numero aleatorio en un rango
             }
-            function eleccion(jugada){
+            function eleccion(jugada){  //definicion de funcion
                 let resultado = ""
                 if(jugada == 1){  
                     resultado = "Piedra 🌑"
@@ -30,7 +30,7 @@
             //alert("Elegiste " + jugador)
            // if(jugador == 1){   //el == signfica comparacion, mientras que = es asignacion
         
-            alert("Tú eliges: " + eleccion(jugador))
+            alert("Tú eliges: " + eleccion(jugador)) //llamas a la funcion
             alert("PC Elige: " + eleccion(pc))
 
             if(pc==jugador){
