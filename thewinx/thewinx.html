@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8"/> <!---caracteres especiales-->
         <title>TheWinx!✨ El jueguito de Dany</title>
         <script src="./js/thewinxgame.js"></script> 
     </head>
 
-    <style>
+    <style> 
+        /*aqui va CSS: colores, tipos de letras, tamaños, fondos, etc*/
         body{background-color: #000000;}
+        h1{font-family: 'Franklin Gothic Medium';font-size: 30px;color:rgb(244, 25, 244);}
+        h2{font-family: 'Franklin Gothic Medium';color:rgb(209, 138, 225);}
+        p{font-family: 'Franklin Gothic Medium';color: aliceblue;}
+        button{font-family: 'Franklin Gothic Medium';}
+        label{font-family: 'Franklin Gothic Medium';color:aliceblue}
+
     </style>
 
     <body> <!---Elementos visibles en la pagina-->
         <center>
-            <h1 style="color:rgb(244, 25, 244); 
-            font-size: 30px;
-            font-family: Franklin Gothic Medium;"
-            >The Winx game! <br>✨🧚🏼‍♂️💫</h1>
+            <h1>The Winx game! <br>✨🧚🏼‍♂️💫</h1>
 
             <section id="seleccionar-mascota">
-                <h2 style="font-family: Franklin Gothic;color:rgb(209, 138, 225);"
-                    >Elige a tu hada</h2>
+                <h2>Elige a tu hada</h2> 
 
                     <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
-                    <label for="pyra" style="font-family: Franklin Gothic;
-                    color:aliceblue;">Pyra</label> <!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
+                    <label for="pyra">Pyra</label> <!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
                     
                     <input type="radio" name="hada" id="luna">
-                    <label for="luna" style = "font-family: Franklin Gothic;
-                    color:aliceblue;">Luna</label>
+                    <label for="luna">Luna</label>
                     
                     <input type="radio" name="hada" id="fleur">
-                    <label for="fleur" style="font-family: Franklin Gothic;
-                    color:aliceblue;">Fleur</label>
+                    <label for="fleur">Fleur</label>
 
-                    <button id="boton-hada" style="font-family: Franklin Gothic;"
-                    >Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
+                    <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
             </section>
 
             <section id="seleccinar-ataque">
-                <h2 style="font-family: Franklin Gothic;
-                    color:rgb(209, 138, 225);"
-                >Elige tu ataque</h2>
+                <h2>Elige tu ataque</h2>
 
-            
-
-                <button id= "boton-ataque"style="font-family: Franklin Gothic;"
-                    >Seleccionar</button>
-
-                <p style="font-family: Franklin Gothic;
-                    color:aliceblue;">Tu hada tiene <span>3</span> vidas</p>
-
-                <p style="font-family: Franklin Gothic;
-                    color:aliceblue;">El hada del enemigo tiene <span>3</span> vidas</p>
-                <p>
-                    <button id="boton-fuego" style="font-family: Franklin Gothic;">Fuego 🔥</button>
-                    <button id="boton-agua" style="font-family: Franklin Gothic;">Agua 💧</button>
-                    <button id="boton-flores" style="font-family: Franklin Gothic;">Flores 🌷</button>
+                <button id= "boton-ataque">Seleccionar</button>
+                <p>Tu hada tiene <span>3</span> vidas</p>
+                <p>El hada del enemigo tiene <span>3</span> vidas</p>
+                <p> 
+                    <button id="boton-fuego">Fuego 🔥</button>
+                    <button id="boton-agua">Agua 💧</button>
+                    <button id="boton-flores">Flores 🌷</button>
                 </p>
             </section> 
 
             <section id="Mensajes">
-                <p style="font-family: Franklin Gothic;color:rgb(234, 211, 32);"
-                >Tu hada atacó con FUEGO, el hada del enemigo atacó con FLORES - GANASTE 🎉</p>
+                <p style="color:rgb(238, 235, 17);">Tu hada atacó con FUEGO, el hada del enemigo atacó con FLORES - GANASTE 🎉</p>
             </section>
 
             <section id="Reiniciar">
-                <button id="boton-reiniciar" style="font-family: Franklin Gothic;background:rgb(226, 43, 144);"
+                <button id="boton-reiniciar" style="background:rgb(226, 43, 144);"
                 >Reiniciar</button>
             </section>
         </center>
