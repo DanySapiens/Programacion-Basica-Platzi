@@ -12,7 +12,7 @@
         h1{font-family: 'Franklin Gothic Medium';font-size: 30px;color:rgb(244, 25, 244);}
         h2{font-family: 'Franklin Gothic Medium';color:rgb(209, 138, 225);}
         p{font-family: 'Franklin Gothic Medium';color: aliceblue;}
-        button{font-family: 'Franklin Gothic Medium';}
+        button{font-family: 'Franklin Gothic Medium';background-color: rgb(253, 212, 242);}
         label{font-family: 'Franklin Gothic Medium';color:aliceblue}
 
     </style>
@@ -21,7 +21,7 @@
         <center>
             <h1>The Winx game! <br>✨🧚🏼‍♂️💫</h1>
 
-            <section id="seleccionar-mascota">
+            <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
                 <h2>Elige a tu hada</h2> 
 
                     <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
@@ -36,12 +36,12 @@
                     <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
             </section>
 
-            <section id="seleccinar-ataque">
+            <section id="seleccinar-ataque"> <!---Seccion de ataques-->
                 <h2>Elige tu ataque</h2>
 
                 <button id= "boton-ataque">Seleccionar</button>
-                <p>Tu hada tiene <span>3</span> vidas</p>
-                <p>El hada del enemigo tiene <span>3</span> vidas</p>
+                <p>Tu hada <span id="hada-jugador"></span> tiene <span>3</span> vidas</p>
+                <p>El hada <span id="hada-enemigo"></span>del enemigo tiene <span>3</span> vidas</p>
                 <p> 
                     <button id="boton-fuego">Fuego 🔥</button>
                     <button id="boton-agua">Agua 💧</button>
@@ -49,11 +49,11 @@
                 </p>
             </section> 
 
-            <section id="Mensajes">
+            <section id="Mensajes"> <!---Seccion de mensajes-->
                 <p style="color:rgb(238, 235, 17);">Tu hada atacó con FUEGO, el hada del enemigo atacó con FLORES - GANASTE 🎉</p>
             </section>
 
-            <section id="Reiniciar">
+            <section id="Reiniciar"> <!---Seccion de reinicio-->
                 <button id="boton-reiniciar" style="background:rgb(226, 43, 144);"
                 >Reiniciar</button>
             </section>
