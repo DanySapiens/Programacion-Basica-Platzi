@@ -78,6 +78,18 @@ function ataqueAleatorioEnemigo(){
     }else{
         ataqueEnemigo = 'FLORES 🌼'
     }
+
+    crearMensaje()
+}
+
+function crearMensaje(){
+    let seccionMensajes = document.getElementById('mensajes')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + '- PENDIENTE'
+
+    seccionMensajes.appendChild(parrafo)
+
 }
 
 function aleatorio(min, max){
