@@ -4,9 +4,6 @@ let ataqueJugador
 let ataqueEnemigo
 
 
-
-
-
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
     let botonHadaJugador = document.getElementById("boton-hada") //llama al elemento de HTML con el Id  
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador) //se ejecuta la funcion cuando se hace click sobre el boton
@@ -79,14 +76,26 @@ function ataqueAleatorioEnemigo(){
         ataqueEnemigo = 'FLORES 🌼'
     }
 
-    crearMensaje()
+    combate()
 }
 
-function crearMensaje(){
+function combate(){
+    if(ataqueEnemigo==ataqueJugador){
+        crearMensaje("EMPATE 😈")
+
+    }else if((ataqueJugador == 'FUEGO 🔥' && ataqueEnemigo == 'FLORES 🌼') || (ataqueJugador == 'AGUA 💧' && ataqueEnemigo == 'FUEGO 🔥') || (ataqueJugador == 'FLORES 🌼' && ataqueEnemigo == 'AGUA 💧')){
+        crearMensaje("GANASTE!! 🏆🙌🏼")
+
+    }else{
+        crearMensaje("PERDISTE 😢")
+    } 
+}
+
+function crearMensaje(resulCombate){
     let seccionMensajes = document.getElementById('mensajes')
 
     let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + '- PENDIENTE'
+    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate
 
     seccionMensajes.appendChild(parrafo)
 
@@ -96,5 +105,6 @@ function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min) //formula para calcular un numero aleatorio en un rango
 }
 window.addEventListener('load', iniciarJuego)
+
 
 
