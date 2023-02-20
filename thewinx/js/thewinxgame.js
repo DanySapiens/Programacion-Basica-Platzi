@@ -1,7 +1,9 @@
 //AQUI VA TODO EL CODIGO EN JAVASCRIPT
-//funciones globales 
+//variables globales 
 let ataqueJugador 
 let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
@@ -66,7 +68,7 @@ function ataqueFlores(){
 }
 
 function ataqueAleatorioEnemigo(){
-    let ataqueAleatorio = aleatorio(1,3)
+    let ataqueAleatorio = aleatorio(1,3)  //define variable
 
     if(ataqueAleatorio==1){
         ataqueEnemigo = 'FUEGO 🔥'
@@ -80,24 +82,31 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate(){
+    let spanVidasJugador = document.getElementById("vidas-jugador") //selecciona el elemento del HTML que tenga el ID = vidas-jugador
+    let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+
     if(ataqueEnemigo==ataqueJugador){
         crearMensaje("EMPATE 😈")
 
     }else if((ataqueJugador == 'FUEGO 🔥' && ataqueEnemigo == 'FLORES 🌼') || (ataqueJugador == 'AGUA 💧' && ataqueEnemigo == 'FUEGO 🔥') || (ataqueJugador == 'FLORES 🌼' && ataqueEnemigo == 'AGUA 💧')){
         crearMensaje("GANASTE!! 🏆🙌🏼")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
 
     }else{
         crearMensaje("PERDISTE 😢")
+        vidasJugador--
+        spanVidasJugador.innerHTML = vidasJugador
     } 
 }
 
-function crearMensaje(resulCombate){
-    let seccionMensajes = document.getElementById('mensajes')
+function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ataque
+    let seccionMensajes = document.getElementById('mensajes') //selecciona el elemento del HTML que tenga el ID = mensajes
 
     let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate
+    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate  //el innerHTML remplaza el contenido del elemento "parrafo"
 
-    seccionMensajes.appendChild(parrafo)
+    seccionMensajes.appendChild(parrafo) //inserta el parrafo dentro de la seccion mensajes
 
 }
 
@@ -105,6 +114,3 @@ function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min) //formula para calcular un numero aleatorio en un rango
 }
 window.addEventListener('load', iniciarJuego)
-
-
-
