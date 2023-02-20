@@ -98,6 +98,21 @@ function combate(){
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     } 
+
+    revisarVidas()
+
+}
+
+function revisarVidas(){
+    if (vidasJugador == 0){
+        resultadoFinal = 'LO SIENTO, EL ENEMIGO HA GANADO 👿'
+        crearMensajeFinal(resultadoFinal)
+
+    }else if(vidasEnemigo == 0){
+        resultadoFinal = 'FELICIDADES HAS GANADO 🎇✨🧚🏼‍♀️'
+        crearMensajeFinal(resultadoFinal)
+    }
+
 }
 
 function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ataque
@@ -107,10 +122,17 @@ function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ata
     parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate  //el innerHTML remplaza el contenido del elemento "parrafo"
 
     seccionMensajes.appendChild(parrafo) //inserta el parrafo dentro de la seccion mensajes
+}
 
+function crearMensajeFinal(resultadoFinal){ 
+    let seccionMensajes = document.getElementById('mensajes') 
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal
+    seccionMensajes.appendChild(parrafo) 
 }
 
 function aleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min) //formula para calcular un numero aleatorio en un rango
 }
+
 window.addEventListener('load', iniciarJuego)
