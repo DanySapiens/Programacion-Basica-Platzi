@@ -18,6 +18,9 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 
     let botonFlores = document.getElementById('boton-flores')
     botonFlores.addEventListener('click',ataqueFlores)
+
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click',reiniciarJuego)
 }
 
 function seleccionarHadaJugador(){
@@ -105,12 +108,10 @@ function combate(){
 
 function revisarVidas(){
     if (vidasJugador == 0){
-        resultadoFinal = 'LO SIENTO, EL ENEMIGO HA GANADO 👿'
-        crearMensajeFinal(resultadoFinal)
+        crearMensajeFinal('👿👿👿LO SIENTO, EL ENEMIGO HA GANADO 👿👿👿')
 
     }else if(vidasEnemigo == 0){
-        resultadoFinal = 'FELICIDADES HAS GANADO 🎇✨🧚🏼‍♀️'
-        crearMensajeFinal(resultadoFinal)
+        crearMensajeFinal('🧚🏼‍♀️✨🎇FELICIDADES HAS GANADO 🎇✨🧚🏼‍♀️')
     }
 
 }
@@ -129,6 +130,21 @@ function crearMensajeFinal(resultadoFinal){
     let parrafo = document.createElement('p')
     parrafo.innerHTML = resultadoFinal
     seccionMensajes.appendChild(parrafo) 
+
+    //se desactivan botones de ataque al llegar las vidas = 0
+    let botonFuego = document.getElementById('boton-fuego')
+    botonFuego.disabled = true
+
+    let botonAgua = document.getElementById('boton-agua')
+    botonAgua.disabled = true
+
+    let botonFlores = document.getElementById('boton-flores')
+    botonFlores.disabled = true
+}
+
+function reiniciarJuego(){
+    location.reload()
+
 }
 
 function aleatorio(min, max){
