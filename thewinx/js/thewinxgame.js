@@ -32,24 +32,32 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 
 function seleccionarHadaJugador(){
     let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //visualiza la seccion de ataques
-    seccionSeleccionarAtaque.style.display = 'block'
+   // seccionSeleccionarAtaque.style.display = 'block'
 
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
 
     if(pyra.checked){
         spanHadaJugador.innerHTML ='Pyra'  //se establece la sintaxis del nombre en el HTML
+        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        seccionSeleccionarAtaque.style.display = 'block'
+       
     } 
     else if(luna.checked){
         spanHadaJugador.innerHTML ='Luna'  
+        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        seccionSeleccionarAtaque.style.display = 'block'
     }
     else if(fleur.checked){
         spanHadaJugador.innerHTML ='Fleur'   
+        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        seccionSeleccionarAtaque.style.display = 'block'
+       
     }else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️")
     }
-
-    let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
-    botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
 
     seleccionarHadaEnemigo()
 
