@@ -7,6 +7,13 @@ let vidasEnemigo = 3
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
+    let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //oculta seccion de ataques
+    seccionSeleccionarAtaque.style.display = 'none'
+
+    let seccionReiniciar = document.getElementById('Reiniciar') //oculta seccion de reinicio
+    seccionReiniciar.style.display = 'none'
+
+
     let botonHadaJugador = document.getElementById("boton-hada") //llama al elemento de HTML con el Id  
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador) //se ejecuta la funcion cuando se hace click sobre el boton
 
@@ -24,6 +31,9 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 }
 
 function seleccionarHadaJugador(){
+    let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //visualiza la seccion de ataques
+    seccionSeleccionarAtaque.style.display = 'block'
+
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
 
     if(pyra.checked){
@@ -38,6 +48,9 @@ function seleccionarHadaJugador(){
         alert("SELECCIONA UN HADA 🧚🏼‍♂️")
     }
 
+    let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+    botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+
     seleccionarHadaEnemigo()
 
 }
@@ -48,10 +61,13 @@ function seleccionarHadaEnemigo(){
 
     if(hadaAleatoria==1){
         spanHadaEnnemigo.innerHTML='Pyra'
+
     }else if(hadaAleatoria==2){
         spanHadaEnnemigo.innerHTML='Luna'
+
     }else{
         spanHadaEnnemigo.innerHTML='Fleur'
+
     }
 }
 
@@ -126,6 +142,7 @@ function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ata
 }
 
 function crearMensajeFinal(resultadoFinal){ 
+
     let seccionMensajes = document.getElementById('mensajes') 
     let parrafo = document.createElement('p')
     parrafo.innerHTML = resultadoFinal
@@ -140,6 +157,9 @@ function crearMensajeFinal(resultadoFinal){
 
     let botonFlores = document.getElementById('boton-flores')
     botonFlores.disabled = true
+
+    let seccionReiniciar = document.getElementById('Reiniciar') //visualiza seccion de reinicio
+    seccionReiniciar.style.display = 'block'
 }
 
 function reiniciarJuego(){
