@@ -4,6 +4,8 @@ let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
+let hadaJugador
+let hadaAleatoria
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
@@ -37,6 +39,8 @@ function seleccionarHadaJugador(){
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
 
     if(pyra.checked){
+        hadaJugador = 1
+
         spanHadaJugador.innerHTML ='Pyra'  //se establece la sintaxis del nombre en el HTML
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
@@ -44,12 +48,16 @@ function seleccionarHadaJugador(){
        
     } 
     else if(luna.checked){
+        hadaJugador = 2
+
         spanHadaJugador.innerHTML ='Luna'  
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
         seccionSeleccionarAtaque.style.display = 'block'
     }
     else if(fleur.checked){
+        hadaJugador = 3
+
         spanHadaJugador.innerHTML ='Fleur'   
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
@@ -64,19 +72,22 @@ function seleccionarHadaJugador(){
 }
 
 function seleccionarHadaEnemigo(){
-    let hadaAleatoria = aleatorio(1,3)
+    hadaAleatoria = aleatorio(1,3)
     let spanHadaEnnemigo =document.getElementById('hada-enemigo')
 
-    if(hadaAleatoria==1){
+    if(hadaJugador !=1 && hadaAleatoria == 1){
         spanHadaEnnemigo.innerHTML='Pyra'
-
-    }else if(hadaAleatoria==2){
+    
+    }else if(hadaJugador != 2 && hadaAleatoria==2){
         spanHadaEnnemigo.innerHTML='Luna'
 
-    }else{
+    }else if(hadaJugador != 3 && hadaAleatoria==3){
         spanHadaEnnemigo.innerHTML='Fleur'
 
+    }else{
+        seleccionarHadaEnemigo()
     }
+
 }
 
 function ataqueFuego(){
