@@ -1,0 +1,58 @@
+.titulo{
+    color:#b1e4fa;
+    font-family: 'Freckle Face', cursive;
+    font-size: 30px;
+    height: 122px;
+   /* background-color:#007bbd; */
+}
+
+h2{
+    color:rgb(0, 0, 0);
+    font-family: 'VT323', monospace;
+    background-color: rgb(122, 193, 250);
+    border-radius: 5px;
+    width: 220px;
+    height: 26px;
+}
+
+h4{
+    color:rgb(246, 255, 0);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+}
+
+p{
+    color: aliceblue;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    
+}
+
+label{
+    color:rgb(255, 255, 255);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    width: 10px;
+    height: 10px;
+    
+}
+
+button{
+    font-family: 'VT323', monospace;
+    background-color: rgb(165, 216, 94);
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#boton-reiniciar{
+    background:rgb(226, 43, 144);
+}
+
+center{
+    background-color: rgb(26, 63, 248);
+    border-radius: 10px;
+}
+
+
+
+
