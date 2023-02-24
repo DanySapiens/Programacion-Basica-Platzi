@@ -15,7 +15,6 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
     let seccionReiniciar = document.getElementById('Reiniciar') //oculta seccion de reinicio
     seccionReiniciar.style.display = 'none'
 
-
     let botonHadaJugador = document.getElementById("boton-hada") //llama al elemento de HTML con el Id  
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador) //se ejecuta la funcion cuando se hace click sobre el boton
 

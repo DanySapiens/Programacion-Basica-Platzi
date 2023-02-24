@@ -13,56 +13,60 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">    
     </head>
 
-    <style> 
-        /*aqui va CSS: colores, tipos de letras, tamaños, fondos, etc*/
-        body{background-color: #000000;}
-       
-    </style>
-
     <body> <!---Elementos visibles en la pagina-->
-        <center>
-            <h1 class="titulo">Bienvenido a <br> The Winx game! <br>✨🧚🏼‍♂️💫</h1>
 
-            <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
-                <h2>Elige a tu hada</h2> 
+        <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
+            <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
+            <h2 class="subtitulo">Elige a tu hada:</h2> 
 
-                    <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
-                    <label for="pyra">Pyra</label> <!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
-                    
-                    <input type="radio" name="hada" id="luna">
-                    <label for="luna">Luna</label>
-                    
-                    <input type="radio" name="hada" id="fleur">
-                    <label for="fleur">Fleur</label>
+            <div class="tarjetas">
+                <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
+                <label class="tarjeta-hada" for="pyra"><!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
+                    <p>Pyra</p>
+                    <img src="imagenes/pyra.png" alt="Pyra">
+                </label> 
+              
+                <input type="radio" name="hada" id="luna">
+                <label class="tarjeta-hada" for="luna">
+                    <p>Luna</p>
+                    <img src="imagenes/luna.png" alt="Luna">
+                </label>
+                        
+                <input type="radio" name="hada" id="fleur">
+                <label class="tarjeta-hada" for="fleur">
+                    <p>Fleur</p>
+                    <img src="imagenes/fleur.png" alt="Fleur">
+                </label>
+               <!-- <img src="imagenes/fleur.png">-->
+            </div>
+            <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
 
-                    <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
-            </section>
+        </section>
 
-            <section id="seleccionar-ataque"> <!---Seccion de ataques-->
-                <h2>Elige tu ataque</h2>
-                <h4>El juego termina cuando las vidas 💞 llegan a cero</h3>
+        <section id="seleccionar-ataque"> <!---Seccion de ataques-->
+            <h2 class="subtitulo">Elige tu ataque</h2>
+            <h4>El juego termina cuando las vidas 💞 llegan a cero</h3>
 
-                <p>Tu hada <span style="color: rgb(240, 230, 40);" id="hada-jugador"></span> tiene <span style='color:red;' id="vidas-jugador">3</span> vidas 💖</p>
-                <p>El hada <span style="color: rgb(240, 230, 40);" id="hada-enemigo"></span> del enemigo tiene <span style='color:red;' id="vidas-enemigo">3</span> vidas 💖</p>
-                <p> 
-                    <button id="boton-fuego">Fuego 🔥</button>
-                    <button id="boton-agua">Agua 💧</button>
-                    <button id="boton-flores">Flores 🌷</button>
-                </p>
-            </section> 
+            <p>Tu hada <span style="color: rgb(240, 230, 40);" id="hada-jugador"></span> tiene <span style='color:red;' id="vidas-jugador">3</span> vidas 💖</p>
+            <p>El hada <span style="color: rgb(240, 230, 40);" id="hada-enemigo"></span> del enemigo tiene <span style='color:red;' id="vidas-enemigo">3</span> vidas 💖</p>
+            <p> 
+                <button id="boton-fuego">Fuego 🔥</button>
+                <button id="boton-agua">Agua 💧</button>
+                <button id="boton-flores">Flores 🌷</button>
+            </p>
+        </section> 
 
-            <section id="mensajes"> <!---Seccion de mensajes-->
-            </section>
+        <section id="mensajes"> <!---Seccion de mensajes-->
+        </section>
 
-            <section id="Reiniciar"> <!---Seccion de reinicio-->
-                <button id="boton-reiniciar" 
-                >Reiniciar</button>
-            </section>
-        </center>
+         <section id="Reiniciar"> <!---Seccion de reinicio-->
+            <button id="boton-reiniciar" 
+            >Reiniciar</button>
+        </section>
+
     </body>
 
 </html>

@@ -1,58 +1,134 @@
-.titulo{
-    color:#b1e4fa;
-    font-family: 'Freckle Face', cursive;
-    font-size: 30px;
-    height: 122px;
-   /* background-color:#007bbd; */
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+body{
+    background-color: #000000;
+    font-family: 'Fredoka One', cursive;
+   /* background: linear-gradient(#085ff6, #74a5f8);
+    background-size: 100vh 100vh;*/
 }
 
-h2{
+#seleccionar-hada{  /*centramos contenido*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo{
+    color:#D800A6;
+    font-family: 'Rampart One', cursive;
+    font-size: 50px;
+    height: 122px;
+    margin-block-end: auto;
+    display: flex;
+    align-items: center;
+}
+
+.subtitulo{
     color:rgb(0, 0, 0);
-    font-family: 'VT323', monospace;
-    background-color: rgb(122, 193, 250);
+    background-color: #47B5FF;
     border-radius: 5px;
     width: 220px;
     height: 26px;
-}
-
-h4{
-    color:rgb(246, 255, 0);
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-}
-
-p{
-    color: aliceblue;
-    font-family: 'VT323', monospace;
     font-size: 20px;
     
 }
 
-label{
-    color:rgb(255, 255, 255);
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-    width: 10px;
-    height: 10px;
+.tarjetas{
+    display: flex;
+    gap: 40px; /*separacion entre tarjetas*/
+}
+
+.tarjeta-hada{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background: linear-gradient(rgb(4, 4, 4), #CB1C8D);
+    box-sizing: border-box;
+    margin: 10px;
+    border: 3px solid #CB1C8D;
+    border-radius: 15px; 
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.tarjeta-hada img{  /*nombre de la clase (espacio) nombre selector dentro de la clase*/
+    width: 90px;
+}
+
+.tarjeta-hada p{ /*el parrafo dentro de la clase va a tener estos estilos*/
+    margin-bottom: initial;
+    margin-top: initial;
+}
+
+.tarjeta-hada:hover {
+    cursor: pointer;
+}
+
+#boton-hada{
+    width: 108px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: #f9a6ed;
+    border: 3px solid #CB1C8D;
+    color: rgb(0, 0, 0);
+    margin: 10px;
+    font-family: 'Fredoka One', cursive;
     
 }
 
-button{
-    font-family: 'VT323', monospace;
-    background-color: rgb(165, 216, 94);
-    font-size: 20px;
+#boton-hada:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+#seleccionar-ataque{
+    color: white;
+}
+
+#mensajes{
+    color: white;
+}
+
+/*
+#boton-hada{
+    font-family: 'Fredoka One', cursive;  
+    background-color: rgb(108, 217, 190);
+    font-size: 15px;
     border-radius: 10px;
+    border: 3px solid #ffffff;
+}*/
+
+
+/*
+#seleccionar-ataque{  /*centramos contenido
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    
+}*/
+
+/*
+#mensajes{  centramos contenido
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}*/
+
+
+
+
+input{
+    display: none;
 }
-
-#boton-reiniciar{
-    background:rgb(226, 43, 144);
-}
-
-center{
-    background-color: rgb(26, 63, 248);
-    border-radius: 10px;
-}
-
-
 
 
