@@ -6,11 +6,7 @@
         <script src="./js/thewinxgame.js"></script> <!--Exporta JS-->
         <link rel="stylesheet" href="./stylesWinx.css"> <!--Exporta -->
 
-        <!---codigo para agregar la fuente del titulo-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
-
+        <!---codigo para agregar la fuente del cuerpo-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">    
@@ -20,6 +16,7 @@
 
         <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
             <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
+
             <h2 class="subtitulo">Elige a tu hada:</h2> 
 
             <div class="tarjetas">
@@ -47,25 +44,37 @@
         </section>
 
         <section id="seleccionar-ataque"> <!---Seccion de ataques-->
-            <h2 class="subtitulo">Elige tu ataque</h2>
-            <h4>El juego termina cuando las vidas 💞 llegan a cero</h3>
+            <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
 
-            <p>Tu hada <span style="color: rgb(240, 230, 40);" id="hada-jugador"></span> tiene <span style='color:red;' id="vidas-jugador">3</span> vidas 💖</p>
-            <p>El hada <span style="color: rgb(240, 230, 40);" id="hada-enemigo"></span> del enemigo tiene <span style='color:red;' id="vidas-enemigo">3</span> vidas 💖</p>
-            <p> 
+            <h2 class="subtitulo">Elige tu ataque</h2>
+
+            <div> 
                 <button id="boton-fuego">Fuego 🔥</button>
                 <button id="boton-agua">Agua 💧</button>
                 <button id="boton-flores">Flores 🌷</button>
-            </p>
+            </div>
+
+            <div>
+                <h4>El juego termina cuando las vidas 💞 llegan a cero</h3>
+
+                <section id="mensajes"> <!---Seccion de mensajes-->
+                </section>
+        
+                 <section id="Reiniciar"> <!---Seccion de reinicio-->
+                    <button id="boton-reiniciar">Reiniciar</button>
+                </section>
+
+            </div>
+
+            <div>
+                <p>Tu hada <span style="color: rgb(240, 230, 40);" id="hada-jugador"></span> tiene <span style='color:red;' id="vidas-jugador">3</span> vidas 💖</p>
+                <p>El hada <span style="color: rgb(240, 230, 40);" id="hada-enemigo"></span> del enemigo tiene <span style='color:red;' id="vidas-enemigo">3</span> vidas 💖</p>
+            </div>
+
+            
+
+            
         </section> 
-
-        <section id="mensajes"> <!---Seccion de mensajes-->
-        </section>
-
-         <section id="Reiniciar"> <!---Seccion de reinicio-->
-            <button id="boton-reiniciar" 
-            >Reiniciar</button>
-        </section>
 
     </body>
 
