@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="utf-8"/> <!---caracteres especiales-->
         <title>TheWinx!✨ El jueguito de Dany</title>
         <script src="./js/thewinxgame.js"></script> <!--Exporta JS-->
@@ -14,8 +15,10 @@
 
     <body> <!---Elementos visibles en la pagina-->
 
+        <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
+
         <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
-            <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
+            <!-- <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1> -->
 
             <h2 class="subtitulo">Elige a tu hada:</h2> 
 
@@ -39,43 +42,57 @@
                 </label>
                <!-- <img src="imagenes/fleur.png">-->
             </div>
+
             <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
 
         </section>
-
-        <section id="seleccionar-ataque"> <!---Seccion de ataques-->
-            <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
-
-            <h2 class="subtitulo">Elige tu ataque</h2>
-
-            <div> 
-                <button id="boton-fuego">Fuego 🔥</button>
-                <button id="boton-agua">Agua 💧</button>
-                <button id="boton-flores">Flores 🌷</button>
-            </div>
-
-            <div>
-                <h4>El juego termina cuando las vidas 💞 llegan a cero</h3>
-
-                <section id="mensajes"> <!---Seccion de mensajes-->
-                </section>
         
-                 <section id="Reiniciar"> <!---Seccion de reinicio-->
-                    <button id="boton-reiniciar">Reiniciar</button>
+        <section id="seleccionar-ataque"> <!---Seccion de ataques-->
+            <!-- <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1> -->
+
+            <h2 class="subtitulo">Elige tu ataque:</h2>
+
+            <div class="botones"> 
+                <button id="boton-fuego" class="boton-ataque">Fuego
+                    <img src="imagenes/fuego.png">
+                </button>
+                <button id="boton-agua" class="boton-ataque">Agua
+                    <img src="imagenes/agua.png">
+                </button>
+                <button id="boton-flores" class="boton-ataque">Flores
+                    <img src="imagenes/flor.png">
+                </button>
+            </div>
+
+            <!---Seccion de mensajes-->
+            <div id="mensajes"> 
+                <p id="resultado">Good luck! 🤞🏼</p>
+
+                <section id="Reiniciar"> <!---Seccion de reinicio-->
+                    <button id="boton-reiniciar">Volver a Jugar</button>
                 </section>
-
             </div>
 
-            <div>
-                <p>Tu hada <span style="color: rgb(240, 230, 40);" id="hada-jugador"></span> tiene <span style='color:red;' id="vidas-jugador">3</span> vidas 💖</p>
-                <p>El hada <span style="color: rgb(240, 230, 40);" id="hada-enemigo"></span> del enemigo tiene <span style='color:red;' id="vidas-enemigo">3</span> vidas 💖</p>
+            <p id="vidas">VIDAS <br>💖</p>
+
+            <div class="ataques"> <!---Seccion de ataques ELEMENTO PADRE-->
+
+                <div class="ataque-jugador"> <!---ELEMENTO HIJO JUGADOR-->
+                    <p class="jugador-enemigo">TÚ:</p>
+                    <p id="vidas-jugador">3</p>
+                    <p id="hada-jugador"></p>
+                    <p id="imagenHada"></p>
+                    <div id="ataques-del-Jugador"></div>
+                </div>
+
+                <div class="ataque-enemigo"> <!---ELEMENTO HIJO ENEMIGO-->
+                    <p class="jugador-enemigo">ENEMIGO:</p>
+                    <p id="vidas-enemigo">3</p>
+                    <p id="hada-enemigo"></p>
+                    <div id="ataques-del-Enemigo"></div>
+                </div>
+
             </div>
-
-            
-
-            
         </section> 
-
     </body>
-
 </html>

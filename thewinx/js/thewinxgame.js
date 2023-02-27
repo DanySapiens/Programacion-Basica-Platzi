@@ -9,6 +9,7 @@ let hadaAleatoria
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
+    
     let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //oculta seccion de ataques
     seccionSeleccionarAtaque.style.display = 'none'
 
@@ -17,7 +18,7 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 
     let botonHadaJugador = document.getElementById("boton-hada") //llama al elemento de HTML con el Id  
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador) //se ejecuta la funcion cuando se hace click sobre el boton
-
+    
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.addEventListener('click',ataqueFuego)
 
@@ -32,8 +33,11 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 }
 
 function seleccionarHadaJugador(){
+    
+    let seccionSeleccionarHada = document.getElementById('seleccionar-hada') //oculta seccion de elegir hada
+    seccionSeleccionarHada.style.display = 'none'
+
     let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //visualiza la seccion de ataques
-   // seccionSeleccionarAtaque.style.display = 'block'
 
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
 
@@ -43,7 +47,7 @@ function seleccionarHadaJugador(){
         spanHadaJugador.innerHTML ='Pyra'  //se establece la sintaxis del nombre en el HTML
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
-        seccionSeleccionarAtaque.style.display = 'block'
+        seccionSeleccionarAtaque.style.display = 'flex'
        
     } 
     else if(luna.checked){
@@ -52,7 +56,7 @@ function seleccionarHadaJugador(){
         spanHadaJugador.innerHTML ='Luna'  
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
-        seccionSeleccionarAtaque.style.display = 'block'
+        seccionSeleccionarAtaque.style.display = 'flex'
     }
     else if(fleur.checked){
         hadaJugador = 3
@@ -60,12 +64,13 @@ function seleccionarHadaJugador(){
         spanHadaJugador.innerHTML ='Fleur'   
         let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
         botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
-        seccionSeleccionarAtaque.style.display = 'block'
+        seccionSeleccionarAtaque.style.display = 'flex'
        
     }else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️")
+        seccionSeleccionarHada.style.display = 'flex'
     }
-
+    
     seleccionarHadaEnemigo()
 
 }
@@ -119,6 +124,7 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate(){
+
     let spanVidasJugador = document.getElementById("vidas-jugador") //selecciona el elemento del HTML que tenga el ID = vidas-jugador
     let spanVidasEnemigo = document.getElementById("vidas-enemigo")
 
@@ -126,7 +132,7 @@ function combate(){
         crearMensaje("EMPATE 😈")
 
     }else if((ataqueJugador == 'FUEGO 🔥' && ataqueEnemigo == 'FLORES 🌼') || (ataqueJugador == 'AGUA 💧' && ataqueEnemigo == 'FUEGO 🔥') || (ataqueJugador == 'FLORES 🌼' && ataqueEnemigo == 'AGUA 💧')){
-        crearMensaje("GANASTE!! 🏆🙌🏼")
+        crearMensaje("GANASTE!! 🙌🏼")
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
 
@@ -142,30 +148,39 @@ function combate(){
 
 function revisarVidas(){
     if (vidasJugador == 0){
-        crearMensajeFinal('👿👿👿LO SIENTO, EL ENEMIGO HA GANADO 👿👿👿')
+        crearMensajeFinal('👿LO SIENTO, EL ENEMIGO HA GANADO 👿')
 
     }else if(vidasEnemigo == 0){
-        crearMensajeFinal('🧚🏼‍♀️✨🎇FELICIDADES HAS GANADO 🎇✨🧚🏼‍♀️')
+        crearMensajeFinal('✨FELICIDADES HAS GANADO 🏆🎉')
     }
 
 }
 
 function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ataque
-    let seccionMensajes = document.getElementById('mensajes') //selecciona el elemento del HTML que tenga el ID = mensajes
+    let seccionMensajes = document.getElementById('resultado') //selecciona el elemento del HTML que tenga el ID = mensajes
+    let ataquesDelJugador = document.getElementById('ataques-del-Jugador')
+    let ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate  //el innerHTML remplaza el contenido del elemento "parrafo"
+    let nuevoAtaqueDelJugador = document.createElement('p')
+    let nuevoAtaqueDelEnemigo = document.createElement('p')
 
-    seccionMensajes.appendChild(parrafo) //inserta el parrafo dentro de la seccion mensajes
+    seccionMensajes.innerHTML= resulCombate //le damos el valor del resultado a la seccion en especifico
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
+
+    // let parrafo = document.createElement('p')
+    // parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate  //el innerHTML remplaza el contenido del elemento "parrafo"
+
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador) //inserta el parrafo dentro de la seccion mensajes
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo) //inserta el parrafo dentro de la seccion mensajes
 }
 
 function crearMensajeFinal(resultadoFinal){ 
 
-    let seccionMensajes = document.getElementById('mensajes') 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
-    seccionMensajes.appendChild(parrafo) 
-
+    let seccionMensajes = document.getElementById('resultado') 
+    seccionMensajes.innerHTML = resultadoFinal
+ 
     //se desactivan botones de ataque al llegar las vidas = 0
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true
@@ -181,8 +196,7 @@ function crearMensajeFinal(resultadoFinal){
 }
 
 function reiniciarJuego(){
-    location.reload()
-
+    location.reload() 
 }
 
 function aleatorio(min, max){
@@ -190,4 +204,5 @@ function aleatorio(min, max){
 }
 
 window.addEventListener('load', iniciarJuego)
+    
 

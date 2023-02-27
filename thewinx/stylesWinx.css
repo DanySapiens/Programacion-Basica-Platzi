@@ -1,8 +1,10 @@
+/* codigo para agregar la fuente del titulo */
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
 body{
     background-color: #000000;
     font-family: 'Fredoka One', cursive;
+
    /* background: linear-gradient(#085ff6, #74a5f8);
     background-size: 100vh 100vh;*/
 }
@@ -10,9 +12,9 @@ body{
 #seleccionar-hada{  /*centramos contenido*/
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     text-align: center;
+
 }
 
 .titulo{
@@ -21,8 +23,11 @@ body{
     font-size: 50px;
     height: 122px;
     margin-block-end: auto;
+    text-shadow: 0px 0px 20px #d500a3;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 24px;
 }
 
 .subtitulo{
@@ -32,6 +37,8 @@ body{
     width: 220px;
     height: 26px;
     font-size: 20px;
+    margin: 30px;
+    box-shadow: 1px 0px 20px 7px #0080d5;
     
 }
 
@@ -51,6 +58,7 @@ body{
     border-radius: 15px; 
     display: flex;
     flex-direction: column-reverse;
+    box-shadow: 1px 0px 20px 7px #d500a3;
 }
 
 .tarjeta-hada img{  /*nombre de la clase (espacio) nombre selector dentro de la clase*/
@@ -70,10 +78,10 @@ body{
     width: 108px;
     height: 34px;
     border-radius: 10px;
-    background-color: #f9a6ed;
-    border: 3px solid #CB1C8D;
+    box-shadow: 1px 0px 20px 7px #47b5ff;
+    background-color: #e8e2e7;
     color: rgb(0, 0, 0);
-    margin: 10px;
+    margin: 20px;
     font-family: 'Fredoka One', cursive;
     
 }
@@ -82,53 +90,158 @@ body{
     cursor: pointer;
 }
 
-
-
-
-
-
 #seleccionar-ataque{
+    display: none;
+    flex-direction: column; /*no se usa justify content si usams flex-direction*/
+    align-items: center;
     color: white;
+    text-align: center;
+}
+
+.boton-ataque{
+    background: linear-gradient(rgb(4, 4, 4), #CB1C8D);
+    border: 3px solid #CB1C8D;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px; 
+    font-family: 'Fredoka One', cursive;
+    color: rgb(255, 255, 255);
+    width: 84px;
+    height: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    box-shadow: 1px 0px 20px 7px #d500a3;
+}
+
+.boton-ataque:hover {
+    cursor: pointer;
+}
+
+.botones{
+    display: flex;
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.botones img{
+    width: 30px;
+    height: 54px;  
+    display: flex;  
+}
+
+#boton-hada:hover{
+    background: #47b5ff;
+    border: 3px solid #47b5ff;
+    box-shadow: 1px 0px 20px 7px #47b5ff;
+}
+
+#boton-fuego:hover{
+    background: linear-gradient(rgb(4, 4, 4), #f65600);
+    border: 3px solid #f65600;
+    box-shadow: 1px 0px 20px 7px #f65600;
+}
+
+#boton-agua:hover{
+    background: linear-gradient(rgb(4, 4, 4), #47b5ff);
+    border: 3px solid #47b5ff;
+    box-shadow: 1px 0px 20px 7px #47b5ff;
+}
+
+#boton-flores:hover{
+    background: linear-gradient(rgb(4, 4, 4), #7b47ff);
+    border: 3px solid #7b47ff;
+    box-shadow: 1px 0px 20px 7px #7b47ff;
 }
 
 #mensajes{
-    color: white;
+    color: rgb(0, 0, 0);
+    width: 300px;
+    background: #ffffff;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 3px solid  #47B5FF;
+    box-shadow: 1px 0px 20px 7px #47B5FF;
 }
 
-/*
-#boton-hada{
-    font-family: 'Fredoka One', cursive;  
-    background-color: rgb(108, 217, 190);
-    font-size: 15px;
+#boton-reiniciar{
+    width: 120px;
+    height: 34px;
     border-radius: 10px;
-    border: 3px solid #ffffff;
-}*/
+    background-color: #000000;
+    color: rgb(255 255 255);
+    margin: 10px;
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 1px 0px 17px 0px #47b5ff;
+}
+
+#vidas{
+    color: red;
+    font-size: 30px;
+    text-shadow: 0px 0px 20px red;
+}
+
+#hada-jugador, #hada-enemigo{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    gap: 70px;
+}
+
+.jugador-enemigo{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+
+}
+
+.ataque-jugador, .ataque-enemigo{ 
+   background-color: white;
+   border-radius: 15px;
+   box-shadow: 1px 0px 20px 7px #47b5ff;
+} 
 
 
-/*
-#seleccionar-ataque{  /*centramos contenido
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    
-}*/
+#vidas-jugador, #vidas-enemigo{
+    font-size: 40px;
+    margin-bottom: inherit;
+    margin-top: inherit;
+    color:red;
+}
 
-/*
-#mensajes{  centramos contenido
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-}*/
+#ataques-del-Jugador, #ataques-del-Enemigo{
+    color:black;
+}   
 
-
-
+/* se reacomodan las tarjetas para tamaños de pantalla pequeños */
+@media(max-width:360px){
+    .tarjetas{
+        flex-direction: column;
+    }
+}
 
 input{
     display: none;
 }
+
+input:checked + label{
+    border: 3px solid #47b5ff;
+    background: linear-gradient(rgb(4, 4, 4), #47b5ff);
+    box-shadow: 1px 0px 17px 0px #47b5ff;
+}
+
+#boton-reiniciar:hover{
+    background:#47b5ff;
+    color: rgb(0, 0, 0);
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 1px 0px 17px 0px #47b5ff;
+}
+
+
+
 
 
