@@ -1,20 +1,12 @@
 /* codigo para agregar la fuente del titulo */
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
 body{
-    background-color: #000000;
+    background: linear-gradient(to right, #0f0f21, #302b63, #03011b);
     font-family: 'Fredoka One', cursive;
-
    /* background: linear-gradient(#085ff6, #74a5f8);
     background-size: 100vh 100vh;*/
-}
-
-#seleccionar-hada{  /*centramos contenido*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
 }
 
 .titulo{
@@ -30,6 +22,15 @@ body{
     margin-bottom: 24px;
 }
 
+/* SECCION SELECCIONAR HADA */
+
+#seleccionar-hada{  /*centramos contenido*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .subtitulo{
     color:rgb(0, 0, 0);
     background-color: #47B5FF;
@@ -38,8 +39,7 @@ body{
     height: 26px;
     font-size: 20px;
     margin: 30px;
-    box-shadow: 1px 0px 20px 7px #0080d5;
-    
+    box-shadow: 1px 0px 20px 7px #0080d5; 
 }
 
 .tarjetas{
@@ -61,13 +61,13 @@ body{
     box-shadow: 1px 0px 20px 7px #d500a3;
 }
 
-.tarjeta-hada img{  /*nombre de la clase (espacio) nombre selector dentro de la clase*/
-    width: 90px;
-}
-
 .tarjeta-hada p{ /*el parrafo dentro de la clase va a tener estos estilos*/
     margin-bottom: initial;
     margin-top: initial;
+}
+
+.tarjeta-hada img{  /*nombre de la clase (espacio) nombre selector dentro de la clase*/
+    width: 90px;
 }
 
 .tarjeta-hada:hover {
@@ -82,20 +82,199 @@ body{
     background-color: #e8e2e7;
     color: rgb(0, 0, 0);
     margin: 20px;
-    font-family: 'Fredoka One', cursive;
-    
+    font-family: 'Fredoka One', cursive; 
 }
 
 #boton-hada:hover{
     cursor: pointer;
+    background: #47b5ff;
+    border: 3px solid #47b5ff;
+    box-shadow: 1px 0px 20px 7px #47b5ff;
 }
 
+#batalla{
+    display: none;
+    
+   
+}
+/*******SECCION BATALLA PERSONAJES******** */
+/* .vidas{
+    display: flex;
+    color: red;
+    font-size: 25px;
+    text-shadow: 0px 0px 20px red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}  */
+
+#batalla{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: 200px 100px 100px 100px 200px;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.ataque-jugador{
+    background-color: white;
+    width: 135px;
+    height: 220px;
+    box-shadow: 1px 0px 20px 7px #47b5ff;
+    text-align: center;
+}
+
+.ataque-jugador, .ataque-enemigo{
+    border-radius: 15px;
+    
+} 
+
+.titulo-jugador{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-bottom: initial;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+
+}
+
+#vidas-jugador, #vidas-enemigo{
+    font-size: 40px;
+    margin-bottom: inherit;
+    margin-top: inherit;
+    color:red;
+}
+
+#hada-jugador{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-top: initial;
+    text-shadow: 0px 0px 20px #0199f6;
+}
+
+.personaje{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personaje p{
+    display: flex;
+    width: 120px;
+    height: 180px;
+    justify-content: center; 
+    margin-top: 0px;
+}
+
+
+#titulo-ataque-jugador{
+    color: black;
+}
+
+#ataques-del-Jugador{
+    color:black;
+    font-size: 20px;
+}  
+
+#imagenHadaEnemigo{
+    transform: scaleX(-1);
+}
+
+.vs-animacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#texto-vs-animacion{
+    font-family: 'Knewave', cursive;
+    font-size: 50px;
+    color: red;
+    text-shadow: 0px 0px 20px #f6011c;
+}
+
+/* #texto-vs{
+    display: none;
+    font-family: 'Knewave', cursive;
+    font-size: 50px;
+    color: red;
+    background-color: transparent;
+} */
+
+/* animacion del texto VS *******************************/
+@keyframes blink {  
+    0% { color: red; }
+    100% { color: rgb(48 43 99); }
+  }
+  @-webkit-keyframes blink {
+    0% { color: red; }
+    100% { color: rgb(48 43 99); }
+  }
+  #texto-vs-animacion {
+    /* -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite; */
+    animation: blink 1s linear infinite;
+  }
+/* ******************************************************/
+
+.ataque-enemigo{
+    background-color: rgb(26 22 63);
+    box-shadow: 1px 0px 20px 7px #d500a3;
+    width: 135px;
+    height: 220px;
+    text-align: center;
+}
+
+.titulo-enemigo{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-bottom: initial;
+}
+
+#hada-enemigo{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: initial;
+    text-shadow: 0px 0px 20px #f601d7;
+}
+
+#titulo-ataque-enemigo{
+    color: white;
+}
+#ataques-del-Enemigo{
+    color:white;
+    font-size: 20px;
+}
+/* **************************** */
+
+/* SECCION SELECCIONAR ATAQUES */
 #seleccionar-ataque{
     display: none;
     flex-direction: column; /*no se usa justify content si usams flex-direction*/
     align-items: center;
     color: white;
     text-align: center;
+}
+
+.botones{
+    display: flex;
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.botones img{
+    width: 30px;
+    height: 54px;  
+    display: flex;  
 }
 
 .boton-ataque{
@@ -116,24 +295,6 @@ body{
 
 .boton-ataque:hover {
     cursor: pointer;
-}
-
-.botones{
-    display: flex;
-    gap: 28px;
-    margin-top: 30px;
-}
-
-.botones img{
-    width: 30px;
-    height: 54px;  
-    display: flex;  
-}
-
-#boton-hada:hover{
-    background: #47b5ff;
-    border: 3px solid #47b5ff;
-    box-shadow: 1px 0px 20px 7px #47b5ff;
 }
 
 #boton-fuego:hover{
@@ -176,53 +337,13 @@ body{
     box-shadow: 1px 0px 17px 0px #47b5ff;
 }
 
-#vidas{
-    color: red;
-    font-size: 30px;
-    text-shadow: 0px 0px 20px red;
-}
-
-#hada-jugador, #hada-enemigo{
+#boton-reiniciar:hover{
+    background:#47b5ff;
     color: rgb(0, 0, 0);
-    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+    box-shadow: 1px 0px 17px 0px #47b5ff;
 }
 
-.ataques{
-    display: grid;
-    grid-template-columns: 200px 200px;
-    gap: 70px;
-}
-
-.jugador-enemigo{
-    color: rgb(0, 0, 0);
-    font-size: 25px;
-
-}
-
-.ataque-jugador, .ataque-enemigo{ 
-   background-color: white;
-   border-radius: 15px;
-   box-shadow: 1px 0px 20px 7px #47b5ff;
-} 
-
-
-#vidas-jugador, #vidas-enemigo{
-    font-size: 40px;
-    margin-bottom: inherit;
-    margin-top: inherit;
-    color:red;
-}
-
-#ataques-del-Jugador, #ataques-del-Enemigo{
-    color:black;
-}   
-
-/* se reacomodan las tarjetas para tamaños de pantalla pequeños */
-@media(max-width:360px){
-    .tarjetas{
-        flex-direction: column;
-    }
-}
 
 input{
     display: none;
@@ -234,14 +355,12 @@ input:checked + label{
     box-shadow: 1px 0px 17px 0px #47b5ff;
 }
 
-#boton-reiniciar:hover{
-    background:#47b5ff;
-    color: rgb(0, 0, 0);
-    font-family: 'Fredoka One', cursive;
-    box-shadow: 1px 0px 17px 0px #47b5ff;
-}
-
-
+/* se reacomodan las tarjetas para tamaños de pantalla pequeños */
+@media(max-width:360px){
+    .tarjetas{
+        flex-direction: column;
+    }
+ }/**************************************************************/
 
 
 

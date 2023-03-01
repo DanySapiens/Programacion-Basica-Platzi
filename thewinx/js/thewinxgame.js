@@ -10,6 +10,9 @@ let hadaAleatoria
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
     
+    let seccionBatalla = document.getElementById('batalla') //oculta seccion de batalla personajes
+    seccionBatalla.style.display = 'none'
+
     let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //oculta seccion de ataques
     seccionSeleccionarAtaque.style.display = 'none'
 
@@ -33,45 +36,69 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 }
 
 function seleccionarHadaJugador(){
-    
+
     let seccionSeleccionarHada = document.getElementById('seleccionar-hada') //oculta seccion de elegir hada
     seccionSeleccionarHada.style.display = 'none'
 
     let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque') //visualiza la seccion de ataques
 
+    let seccionBatalla = document.getElementById('batalla') 
+
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
+
+
+    //imagenes de las hadas
+    let imagenPyra = document.createElement('img')
+    imagenPyra.src='imagenes/pyra.png'
+
+    let imagenLuna = document.createElement('img')
+    imagenLuna.src='imagenes/luna.png'
+
+    let imagenFleur = document.createElement('img')
+    imagenFleur.src='imagenes/fleur.png'
+
+    let insertHadaJugador = document.getElementById('imagenHadaJugador')
 
     if(pyra.checked){
         hadaJugador = 1
 
         spanHadaJugador.innerHTML ='Pyra'  //se establece la sintaxis del nombre en el HTML
-        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
-        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        insertHadaJugador.appendChild(imagenPyra)
+        // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        // botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
         seccionSeleccionarAtaque.style.display = 'flex'
+        seccionBatalla.style.display = 'flex'
+        seleccionarHadaEnemigo()
        
     } 
     else if(luna.checked){
         hadaJugador = 2
 
         spanHadaJugador.innerHTML ='Luna'  
-        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
-        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        insertHadaJugador.appendChild(imagenLuna)
+        // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        // botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
         seccionSeleccionarAtaque.style.display = 'flex'
+        seccionBatalla.style.display = 'flex'
+        seleccionarHadaEnemigo()
     }
     else if(fleur.checked){
         hadaJugador = 3
 
         spanHadaJugador.innerHTML ='Fleur'   
-        let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
-        botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
+        insertHadaJugador.appendChild(imagenFleur)
+        // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
+        // botonHadaJugador.disabled = true //deshabilita boton Seleccionar Hada
         seccionSeleccionarAtaque.style.display = 'flex'
+        seccionBatalla.style.display = 'flex'
+        seleccionarHadaEnemigo()
        
     }else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️")
         seccionSeleccionarHada.style.display = 'flex'
     }
     
-    seleccionarHadaEnemigo()
+    // seleccionarHadaEnemigo()
 
 }
 
@@ -79,14 +106,29 @@ function seleccionarHadaEnemigo(){
     hadaAleatoria = aleatorio(1,3)
     let spanHadaEnnemigo =document.getElementById('hada-enemigo')
 
+    //imagenes de las hadas
+    let imagenPyraEnemi = document.createElement('img')
+    imagenPyraEnemi.src = 'imagenes/pyra.png'
+
+    let imagenLunaEnemi = document.createElement('img')
+    imagenLunaEnemi.src= 'imagenes/luna.png' 
+
+    let imagenFleurEnemi = document.createElement('img')
+    imagenFleurEnemi.src='imagenes/fleur.png'
+
+    let insertHadaEnemigo = document.getElementById("imagenHadaEnemigo")
+
     if(hadaJugador !=1 && hadaAleatoria == 1){
         spanHadaEnnemigo.innerHTML='Pyra'
+        insertHadaEnemigo.appendChild(imagenPyraEnemi)
     
     }else if(hadaJugador != 2 && hadaAleatoria==2){
         spanHadaEnnemigo.innerHTML='Luna'
+        insertHadaEnemigo.appendChild(imagenLunaEnemi)
 
     }else if(hadaJugador != 3 && hadaAleatoria==3){
         spanHadaEnnemigo.innerHTML='Fleur'
+        insertHadaEnemigo.appendChild(imagenFleurEnemi)
 
     }else{
         seleccionarHadaEnemigo()
@@ -161,19 +203,20 @@ function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ata
     let ataquesDelJugador = document.getElementById('ataques-del-Jugador')
     let ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 
-    let nuevoAtaqueDelJugador = document.createElement('p')
-    let nuevoAtaqueDelEnemigo = document.createElement('p')
+    // let nuevoAtaqueDelJugador = document.createElement('p') 
+    // let nuevoAtaqueDelEnemigo = document.createElement('p')
 
     seccionMensajes.innerHTML= resulCombate //le damos el valor del resultado a la seccion en especifico
-    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
-    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+    ataquesDelJugador.innerHTML = ataqueJugador
+    ataquesDelEnemigo.innerHTML = ataqueEnemigo
+   
+   
+    // nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    // nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
 
+    // ataquesDelJugador.appendChild(nuevoAtaqueDelJugador) //inserta el parrafo dentro de la seccion mensajes
+    // ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo) //inserta el parrafo dentro de la seccion mensajes
 
-    // let parrafo = document.createElement('p')
-    // parrafo.innerHTML = 'Tu hada atacó con ' + ataqueJugador + ', el hada del enemigo atacó con ' + ataqueEnemigo + ' - ' + resulCombate  //el innerHTML remplaza el contenido del elemento "parrafo"
-
-    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador) //inserta el parrafo dentro de la seccion mensajes
-    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo) //inserta el parrafo dentro de la seccion mensajes
 }
 
 function crearMensajeFinal(resultadoFinal){ 
@@ -193,6 +236,15 @@ function crearMensajeFinal(resultadoFinal){
 
     let seccionReiniciar = document.getElementById('Reiniciar') //visualiza seccion de reinicio
     seccionReiniciar.style.display = 'block'
+
+    detenerVs()
+}
+
+function detenerVs(){
+    let textoVsFinJuego = document.getElementById('texto-vs-animacion')
+    textoVsFinJuego.style.animation = false
+    textoVsFinJuego.style.color = 'white'
+    textoVsFinJuego.style.textShadow = '0px 0px 20px #ffffff'
 }
 
 function reiniciarJuego(){
