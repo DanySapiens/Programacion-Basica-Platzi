@@ -17,6 +17,7 @@ function modalFinalJugador(mensaje){
         imageWidth: '80px',}).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                resu
                 location.reload() 
             } 
           })
@@ -55,8 +56,8 @@ function modalBatalla(){
         allowEscapeKey: false,
         stopKeydownPropagation: false,
         imageUrl: 'imagenes/ready.png',
-        imageHeight: '80px', 
-        imageWidth: '80px', 
+        imageHeight: '90px', 
+        imageWidth: '90px', 
     })
 
 }

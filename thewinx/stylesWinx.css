@@ -174,10 +174,12 @@ body{
 
 #titulo-ataque-jugador{
     color: black;
+    text-shadow: 0px 0px 20px #1500ff;
 }
 
 #ataques-del-Jugador{
-    color:black;
+    /* color:black; */
+    color: #5582f7;
     font-size: 20px;
 }  
 
@@ -245,9 +247,11 @@ body{
 
 #titulo-ataque-enemigo{
     color: white;
+    text-shadow: 0px 0px 20px #fbfe11;
 }
 #ataques-del-Enemigo{
-    color:white;
+    /* color:white; */
+    color: #5582f7;
     font-size: 20px;
 }
 /* **************************** */
@@ -334,12 +338,12 @@ body{
 }
 
 #boton-reiniciar:hover{
+    cursor: pointer;
     background:#47b5ff;
     color: rgb(0, 0, 0);
     font-family: 'Fredoka One', cursive;
     box-shadow: 1px 0px 17px 0px #47b5ff;
 }
-
 
 input{
     display: none;
