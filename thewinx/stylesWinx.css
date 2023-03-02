@@ -124,7 +124,7 @@ body{
 
 .ataque-jugador{
     background-color: white;
-    width: 135px;
+    width: 170px;
     height: 220px;
     box-shadow: 1px 0px 20px 7px #47b5ff;
     text-align: center;
@@ -225,7 +225,7 @@ body{
 .ataque-enemigo{
     background-color: rgb(26 22 63);
     box-shadow: 1px 0px 20px 7px #d500a3;
-    width: 135px;
+    width: 170px;
     height: 220px;
     text-align: center;
 }

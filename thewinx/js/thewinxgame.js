@@ -33,6 +33,7 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
 
     let botonReiniciar = document.getElementById('boton-reiniciar')
     botonReiniciar.addEventListener('click',reiniciarJuego)
+    
 }
 
 function seleccionarHadaJugador(){
@@ -45,7 +46,6 @@ function seleccionarHadaJugador(){
     let seccionBatalla = document.getElementById('batalla') 
 
     let spanHadaJugador = document.getElementById('hada-jugador') //guarda el nombre del hada en el html
-
 
     //imagenes de las hadas
     let imagenPyra = document.createElement('img')
@@ -60,8 +60,8 @@ function seleccionarHadaJugador(){
     let insertHadaJugador = document.getElementById('imagenHadaJugador')
 
     if(pyra.checked){
+        modalBatalla()
         hadaJugador = 1
-
         spanHadaJugador.innerHTML ='Pyra'  //se establece la sintaxis del nombre en el HTML
         insertHadaJugador.appendChild(imagenPyra)
         // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
@@ -69,11 +69,13 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex'
         seccionBatalla.style.display = 'flex'
         seleccionarHadaEnemigo()
+        
        
     } 
     else if(luna.checked){
-        hadaJugador = 2
+        modalBatalla()
 
+        hadaJugador = 2
         spanHadaJugador.innerHTML ='Luna'  
         insertHadaJugador.appendChild(imagenLuna)
         // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
@@ -81,10 +83,12 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex'
         seccionBatalla.style.display = 'flex'
         seleccionarHadaEnemigo()
+        
     }
     else if(fleur.checked){
-        hadaJugador = 3
+        modalBatalla()
 
+        hadaJugador = 3
         spanHadaJugador.innerHTML ='Fleur'   
         insertHadaJugador.appendChild(imagenFleur)
         // let botonHadaJugador = document.getElementById("boton-hada") //seleccionar el boton-hada del html por medio del valor del atributo id que se le haya asignado.
@@ -92,6 +96,7 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex'
         seccionBatalla.style.display = 'flex'
         seleccionarHadaEnemigo()
+       
        
     }else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️")
@@ -190,9 +195,15 @@ function combate(){
 
 function revisarVidas(){
     if (vidasJugador == 0){
+        // document.getElementsByClassName('titulo-jugador').innerHTML = 'TÚ 💔:'
+        document.querySelector('.titulo-jugador').innerHTML = 'TÚ 💀:'
+        document.getElementById('vidas-jugador').style.color = 'black'
         crearMensajeFinal('👿LO SIENTO, EL ENEMIGO HA GANADO 👿')
 
     }else if(vidasEnemigo == 0){
+        // document.getElementsByClassName('titulo-enemigo').innerHTML = 'ENEMIGO 💔:'
+        document.querySelector('.titulo-enemigo').innerHTML = 'ENEMIGO 💀:'
+        document.getElementById('vidas-enemigo').style.color = 'white'
         crearMensajeFinal('FELICIDADES HAS GANADO <br>🏆')
     }
 
@@ -252,8 +263,11 @@ function crearMensajeFinal(resultadoFinal){
 
     if(vidasJugador == 0){
         modalFinalEnemigo(resultadoFinal) //sweetAlert
+        
+
     }else if(vidasEnemigo == 0){
         modalFinalJugador(resultadoFinal)
+        
     }
 }
 
