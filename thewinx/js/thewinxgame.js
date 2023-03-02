@@ -193,7 +193,7 @@ function revisarVidas(){
         crearMensajeFinal('👿LO SIENTO, EL ENEMIGO HA GANADO 👿')
 
     }else if(vidasEnemigo == 0){
-        crearMensajeFinal('✨FELICIDADES HAS GANADO 🏆🎉')
+        crearMensajeFinal('FELICIDADES HAS GANADO <br>🏆')
     }
 
 }
@@ -221,23 +221,40 @@ function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ata
 
 function crearMensajeFinal(resultadoFinal){ 
 
-    let seccionMensajes = document.getElementById('resultado') 
-    seccionMensajes.innerHTML = resultadoFinal
+    // let seccionMensajes = document.getElementById('resultado') 
+    // seccionMensajes.innerHTML = resultadoFinal
  
     //se desactivan botones de ataque al llegar las vidas = 0
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true
+    botonFuego.style.pointerEvents = 'none'
+    botonFuego.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)'
+    botonFuego.style.border = '3px solid #653d57'
+    botonFuego.style.boxShadow ='1px 0px 20px 7px #53454f'
 
     let botonAgua = document.getElementById('boton-agua')
-    botonAgua.disabled = true
+    botonAgua.style.pointerEvents = 'none'
+    botonAgua.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)'
+    botonAgua.style.border = '3px solid #653d57'
+    botonAgua.style.boxShadow ='1px 0px 20px 7px #53454f'
 
     let botonFlores = document.getElementById('boton-flores')
     botonFlores.disabled = true
+    botonFlores.style.pointerEvents ='none'
+    botonFlores.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)'
+    botonFlores.style.border = '3px solid #653d57'
+    botonFlores.style.boxShadow ='1px 0px 20px 7px #53454f'
 
     let seccionReiniciar = document.getElementById('Reiniciar') //visualiza seccion de reinicio
     seccionReiniciar.style.display = 'block'
 
     detenerVs()
+
+    if(vidasJugador == 0){
+        modalFinalEnemigo(resultadoFinal) //sweetAlert
+    }else if(vidasEnemigo == 0){
+        modalFinalJugador(resultadoFinal)
+    }
 }
 
 function detenerVs(){
