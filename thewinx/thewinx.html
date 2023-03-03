@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta charset="utf-8"/> <!---caracteres especiales-->
         <title>TheWinx!✨ El jueguito de Dany</title>
         <link rel="stylesheet" href="./stylesWinx.css"> <!--Exporta -->
@@ -14,24 +13,21 @@
 
     <body> <!---Elementos visibles en la pagina-->
         <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1>
+
         <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
             <!-- <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1> -->
-
             <h2 class="subtitulo">Elige a tu hada:</h2> 
-
             <div class="tarjetas">
                 <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
                 <label class="tarjeta-hada" for="pyra"><!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
                     <p>Pyra</p>
                     <img src="imagenes/pyra.png" alt="Pyra">
                 </label> 
-              
                 <input type="radio" name="hada" id="luna">
                 <label class="tarjeta-hada" for="luna">
                     <p>Luna</p>
                     <img src="imagenes/luna.png" alt="Luna">
                 </label>
-                        
                 <input type="radio" name="hada" id="fleur">
                 <label class="tarjeta-hada" for="fleur">
                     <p>Fleur</p>
@@ -43,38 +39,23 @@
         </section>
 
         <section id ='batalla'>
-
-            <!-- <div class="vidas">
-                <p>VIDAS <br>💖</p>
-            </div> -->
-
             <div class="ataques"> <!---Seccion de ataques ELEMENTO PADRE-->
-
                 <div class="ataque-jugador"> <!---ELEMENTO HIJO JUGADOR-->
                     <p class="titulo-jugador">TÚ 💖:</p>
                     <p id="vidas-jugador">3</p>
                     <p id="hada-jugador"></p>
-
                     <p id="titulo-ataque-jugador">ATAQUE:</p>
                     <div id="ataques-del-Jugador"></div>
                 </div>
-
                 <div class="personaje">
                     <p id="imagenHadaJugador"></p>
                 </div>
-
                 <div class="vs-animacion">
                     <p id="texto-vs-animacion">VS</p>
                 </div>
-
-                <!-- <div class="vs">
-                    <p id="texto-vs">VS</p>
-                </div> -->
-               
                 <div class="personaje">
                     <p id="imagenHadaEnemigo"></p>
                 </div>
-
                 <div class="ataque-enemigo"> <!---ELEMENTO HIJO ENEMIGO-->
                     <p class="titulo-enemigo">ENEMIGO 💖:</p>
                     <p id="vidas-enemigo">3</p>
@@ -82,13 +63,10 @@
                     <p id= 'titulo-ataque-enemigo'>ATAQUE:</p>
                     <div id="ataques-del-Enemigo"></div>
                 </div>
-
             </div>
-
         </section>
         
         <section id="seleccionar-ataque"> <!---Seccion de ataques--> 
-
             <h2 class="subtitulo">Elige tu ataque:</h2>
             <div class="botones"> 
                 <button id="boton-fuego" class="boton-ataque">Fuego
@@ -108,12 +86,10 @@
                     <button id="boton-reiniciar">Volver a Jugar</button>
                 </section>
             </div>
-            
         </section>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="./js/sweetAlert.js"></script>
         <script src="./js/thewinxgame.js"></script> <!--Exporta JS-->
-
     </body>
 </html>

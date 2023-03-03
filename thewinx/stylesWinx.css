@@ -24,7 +24,6 @@ body{
 }
 
 /* SECCION SELECCIONAR HADA */
-
 #seleccionar-hada{  /*centramos contenido*/
     display: flex;
     flex-direction: column;
@@ -93,22 +92,9 @@ body{
     box-shadow: 1px 0px 20px 7px #47b5ff;
 }
 
-#batalla{
-    display: none;
-    
-   
-}
-/*******SECCION BATALLA PERSONAJES******** */
-/* .vidas{
-    display: flex;
-    color: red;
-    font-size: 25px;
-    text-shadow: 0px 0px 20px red;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-}  */
 
+
+/*******SECCION BATALLA PERSONAJES******** */
 #batalla{
     display: none;
     flex-direction: column;
@@ -172,7 +158,6 @@ body{
     margin-top: 0px;
 }
 
-
 #titulo-ataque-jugador{
     color: black;
     text-shadow: 0px 0px 20px #1500ff;
@@ -200,14 +185,6 @@ body{
     color: red;
     text-shadow: 0px 0px 20px #f6011c;
 }
-
-/* #texto-vs{
-    display: none;
-    font-family: 'Knewave', cursive;
-    font-size: 50px;
-    color: red;
-    background-color: transparent;
-} */
 
 /* animacion del texto VS *******************************/
 @keyframes blink {  
@@ -256,7 +233,6 @@ body{
     font-size: 20px;
 }
 /* **************************** */
-
 /* SECCION SELECCIONAR ATAQUES */
 #seleccionar-ataque{
     display: none;
@@ -366,7 +342,6 @@ input:checked + label{
 .swal2-title{
     padding: 0px;
 }
-
 /* ANIMACION FLOAT SHADOW PARA INPUT TARJETAS HADAS*/
 input + label {
     display: inline-block;

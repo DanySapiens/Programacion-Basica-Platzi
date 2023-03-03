@@ -1,7 +1,4 @@
-
-
-
-function modalFinalJugador(mensaje){
+function modalFinalJugador(mensaje){ //ventana emergente Fin del juego Jugador Ganador
     Swal.fire({
         title: mensaje,
         text: 'Eale!',
@@ -17,15 +14,12 @@ function modalFinalJugador(mensaje){
         imageWidth: '80px',}).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                resu
-                location.reload() 
-            } 
-          })
-    
+                    location.reload() 
+                }
+            })
 }   
 
-
-function modalFinalEnemigo(mensaje){
+function modalFinalEnemigo(mensaje){ //ventana emergente Fin del juego Enemigo Ganador
     Swal.fire({
         title: mensaje,
         text: 'Unos pedillos...',
@@ -41,14 +35,12 @@ function modalFinalEnemigo(mensaje){
         imageWidth: '115px',}).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                location.reload() 
-            } 
-          })
- 
+                    location.reload() 
+                }
+            })
 }
 
-
-function modalBatalla(){
+function modalBatalla(){ //ventana emergente aviso de inicio de batalla
     Swal.fire({
         title: 'EL JUEGO FINALIZA CUANDO LAS VIDAS 💖 LLEGUEN A CERO',
         text: 'Suerte 🤞🏼',
@@ -59,7 +51,4 @@ function modalBatalla(){
         imageHeight: '90px', 
         imageWidth: '90px', 
     })
-
 }
-
-
