@@ -1,7 +1,22 @@
 /* codigo para agregar la fuente del titulo */
-@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap'); */
 /* @import url('hover-min.css'); */
+
+@font-face {
+    font-family:'Fredoka One';
+    src: url(fuentes/FredokaOne-Regular.ttf);
+}
+
+@font-face {
+    font-family:'Rampart One';
+    src: url(fuentes/RampartOne-Regular.ttf);
+}
+
+@font-face {
+    font-family:'Knewave';
+    src: url(fuentes/Knewave-Regular.ttf);
+}
 
 body{
     background: linear-gradient(to right, #0f0f21, #302b63, #03011b);
