@@ -1,30 +1,30 @@
 //AQUI VA TODO EL CODIGO EN JAVASCRIPT
 //variables globales 
 //funcion iniciarJuego
-let seccionBatalla = document.getElementById('batalla')
-let seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-let seccionReiniciar = document.getElementById('Reiniciar')
-let botonHadaJugador = document.getElementById("boton-hada")   //llama al elemento de HTML con el Id  
+const seccionBatalla = document.getElementById('batalla')
+const seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+const seccionReiniciar = document.getElementById('Reiniciar')
+const botonHadaJugador = document.getElementById("boton-hada")   //llama al elemento de HTML con el Id  
 //funcion seleccionarHadaJugador
-let botonFuego = document.getElementById('boton-fuego')
-let botonAgua = document.getElementById('boton-agua')
-let botonFlores = document.getElementById('boton-flores')
-let botonReiniciar = document.getElementById('boton-reiniciar')
-let seccionSeleccionarHada = document.getElementById('seleccionar-hada')
-let spanHadaJugador = document.getElementById('hada-jugador')
-let insertHadaJugador = document.getElementById('imagenHadaJugador')
+const botonFuego = document.getElementById('boton-fuego')
+const botonAgua = document.getElementById('boton-agua')
+const botonFlores = document.getElementById('boton-flores')
+const botonReiniciar = document.getElementById('boton-reiniciar')
+const seccionSeleccionarHada = document.getElementById('seleccionar-hada')
+const spanHadaJugador = document.getElementById('hada-jugador')
+const insertHadaJugador = document.getElementById('imagenHadaJugador')
 //funcion seleccionarHadaEnemigo
-let spanHadaEnnemigo =document.getElementById('hada-enemigo')
-let insertHadaEnemigo = document.getElementById("imagenHadaEnemigo")
+const spanHadaEnnemigo =document.getElementById('hada-enemigo')
+const insertHadaEnemigo = document.getElementById("imagenHadaEnemigo")
 //funcion combate
-let spanVidasJugador = document.getElementById("vidas-jugador") 
-let spanVidasEnemigo = document.getElementById("vidas-enemigo")
+const spanVidasJugador = document.getElementById("vidas-jugador") 
+const spanVidasEnemigo = document.getElementById("vidas-enemigo")
 //funcion crearMensaje
-let seccionMensajes = document.getElementById('resultado') 
-let ataquesDelJugador = document.getElementById('ataques-del-Jugador')
-let ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
+const seccionMensajes = document.getElementById('resultado') 
+const ataquesDelJugador = document.getElementById('ataques-del-Jugador')
+const ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 //funcion detenerVs
-let textoVsFinJuego = document.getElementById('texto-vs-animacion')
+const textoVsFinJuego = document.getElementById('texto-vs-animacion')
 
 //variables globales
 let ataqueJugador 
