@@ -21,21 +21,21 @@ function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pag
     let botonHadaJugador = document.getElementById("boton-hada") //llama al elemento de HTML con el Id  
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador) //se ejecuta la funcion cuando se hace click sobre el boton
     
-    //NOTA: cambiar esta parte a la funcion seleccionarHadaJugador
-    let botonFuego = document.getElementById('boton-fuego')
-    botonFuego.addEventListener('click',ataqueFuego)
-
-    let botonAgua = document.getElementById('boton-agua')
-    botonAgua.addEventListener('click',ataqueAgua)
-
-    let botonFlores = document.getElementById('boton-flores')
-    botonFlores.addEventListener('click',ataqueFlores)
-
-    let botonReiniciar = document.getElementById('boton-reiniciar')
-    botonReiniciar.addEventListener('click',reiniciarJuego)
 }
 
 function seleccionarHadaJugador(){
+     //NOTA: cambiar esta parte a la funcion seleccionarHadaJugador
+    let botonFuego = document.getElementById('boton-fuego')
+    botonFuego.addEventListener('click',ataqueFuego)
+ 
+    let botonAgua = document.getElementById('boton-agua')
+    botonAgua.addEventListener('click',ataqueAgua)
+ 
+    let botonFlores = document.getElementById('boton-flores')
+    botonFlores.addEventListener('click',ataqueFlores)
+ 
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click',reiniciarJuego)
 
     let seccionSeleccionarHada = document.getElementById('seleccionar-hada') //oculta seccion de elegir hada
     seccionSeleccionarHada.style.display = 'none'
