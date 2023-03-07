@@ -4,11 +4,6 @@
         <meta charset="utf-8"/> <!---caracteres especiales-->
         <title>TheWinx!✨ El jueguito de Dany</title>
         <link rel="stylesheet" href="./stylesWinx.css"> <!--Exporta -->
-        
-        <!---codigo para agregar la fuente del cuerpo-->
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">     -->
     </head>
 
     <body> <!---Elementos visibles en la pagina-->
@@ -17,22 +12,26 @@
         <section id="seleccionar-hada"> <!---Seccion de tipos de hadas-->
             <!-- <h1 class="titulo">FAIRYWINIX!<br>✨🧚🏼‍♂️💫</h1> -->
             <h2 class="subtitulo">Elige a tu hada:</h2> 
+
             <div class="tarjetas">
                 <input type="radio" name="hada" id="pyra"> <!---name es el grupo al que pertenece el boton-->
                 <label class="tarjeta-hada" for="pyra"><!---con el for se agrega el id del input para seleccionar con la etiqueta, vincula el label con el input-->
                     <p>Pyra</p>
                     <img src="imagenes/pyra.png" alt="Pyra">
                 </label> 
+
                 <input type="radio" name="hada" id="luna">
                 <label class="tarjeta-hada" for="luna">
                     <p>Luna</p>
                     <img src="imagenes/luna.png" alt="Luna">
                 </label>
+
                 <input type="radio" name="hada" id="fleur">
                 <label class="tarjeta-hada" for="fleur">
                     <p>Fleur</p>
                     <img src="imagenes/fleur.png" alt="Fleur">
                 </label>
+
                <!-- <img src="imagenes/fleur.png">-->
             </div>
             <button id="boton-hada">Seleccionar</button> <!---se agrega un id a los botones para que el JS los reconozca-->
@@ -68,6 +67,7 @@
         
         <section id="seleccionar-ataque"> <!---Seccion de ataques--> 
             <h2 class="subtitulo">Elige tu ataque:</h2>
+
             <div class="botones"> 
                 <button id="boton-fuego" class="boton-ataque">Fuego
                     <img src="imagenes/fuego.png">
@@ -79,6 +79,7 @@
                     <img src="imagenes/flor.png">
                 </button>
             </div>
+
             <!---Seccion de mensajes-->
             <div id="mensajes"> 
                 <p id="resultado">Good luck! 🤞🏼</p>
