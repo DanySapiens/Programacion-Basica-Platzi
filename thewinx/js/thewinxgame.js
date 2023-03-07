@@ -1,5 +1,4 @@
 //AQUI VA TODO EL CODIGO EN JAVASCRIPT
-//variables globales 
 //funcion iniciarJuego
 const seccionBatalla = document.getElementById('batalla')
 const seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
@@ -33,6 +32,19 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 let hadaJugador
 let hadaAleatoria
+
+class Hada{ //primera letra de la clase debe ir en MAYUSCULA
+    constructor(nombre, foto, vida){
+        this.nombre = nombre;
+        this.foto = foto;
+        this.vida = vida;
+    }
+}
+
+let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5);
+let luna = new Hada('Luna', 'imagenes/luna.png', 5);
+let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
+
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
     seccionBatalla.style.display = 'none'; //oculta seccion de batalla personajes
