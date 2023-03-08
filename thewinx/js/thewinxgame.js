@@ -26,6 +26,7 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 const textoVsFinJuego = document.getElementById('texto-vs-animacion')
 
 //variables globales
+let hadas = []   // variable de arreglo
 let ataqueJugador 
 let ataqueEnemigo
 let vidasJugador = 3
@@ -44,6 +45,8 @@ class Hada{ //primera letra de la clase debe ir en MAYUSCULA
 let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5);
 let luna = new Hada('Luna', 'imagenes/luna.png', 5);
 let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
+
+hadas.push(pyra,luna,fleur) //agrega los personajes a la variable arreglo
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
