@@ -39,6 +39,7 @@ class Hada{ //primera letra de la clase debe ir en MAYUSCULA
         this.nombre = nombre;
         this.foto = foto;
         this.vida = vida;
+        this.ataques = [];
     }
 }
 
@@ -46,7 +47,30 @@ let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5);
 let luna = new Hada('Luna', 'imagenes/luna.png', 5);
 let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
 
-hadas.push(pyra,luna,fleur) //agrega los personajes a la variable arreglo
+pyra.ataques.push(
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🌼', id: 'boton-flores'},
+)
+
+luna.ataques.push(
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '🌼', id: 'boton-flores'},
+)
+
+fleur.ataques.push(
+    {nombre: '🌼', id: 'boton-flores'},
+    {nombre: '🌼', id: 'boton-flores'},
+    {nombre: '🌼', id: 'boton-flores'},
+    {nombre: '🔥', id: 'boton-fuego'},
+    {nombre: '💧', id: 'boton-agua'},
+)
+
 
 
 function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
