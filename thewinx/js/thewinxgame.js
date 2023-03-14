@@ -123,7 +123,7 @@ function seleccionarHadaJugador(){
     if(inputPyra.checked){
         modalBatalla()
         hadaJugador = 1;
-        spanHadaJugador.innerHTML ='Pyra';  //se establece la sintaxis del nombre en el HTML
+        spanHadaJugador.innerHTML = inputPyra.id;  //se establece la sintaxis del nombre en el HTML
         insertHadaJugador.appendChild(imagenPyra);
         seccionSeleccionarAtaque.style.display = 'flex'; //visualiza la seccion de ataques
         seccionBatalla.style.display = 'flex';
@@ -132,7 +132,7 @@ function seleccionarHadaJugador(){
     else if(inputLuna.checked){
         modalBatalla()
         hadaJugador = 2;
-        spanHadaJugador.innerHTML ='Luna'; 
+        spanHadaJugador.innerHTML = inputLuna.id; 
         insertHadaJugador.appendChild(imagenLuna);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
@@ -141,7 +141,7 @@ function seleccionarHadaJugador(){
     else if(inputFleur.checked){
         modalBatalla()
         hadaJugador = 3;
-        spanHadaJugador.innerHTML ='Fleur'; 
+        spanHadaJugador.innerHTML = inputFleur.id; 
         insertHadaJugador.appendChild(imagenFleur);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
