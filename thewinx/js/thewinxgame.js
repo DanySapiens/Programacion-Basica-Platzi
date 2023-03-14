@@ -123,16 +123,16 @@ function seleccionarHadaJugador(){
     if(inputPyra.checked){
         modalBatalla()
         hadaJugador = 1;
-        spanHadaJugador.innerHTML = inputPyra.id;  //se establece la sintaxis del nombre en el HTML
+        spanHadaJugador.innerHTML = inputPyra.id;  //se establece una sola fuente de verdad
         insertHadaJugador.appendChild(imagenPyra);
-        seccionSeleccionarAtaque.style.display = 'flex'; //visualiza la seccion de ataques
+        seccionSeleccionarAtaque.style.display = 'flex'; 
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo() 
     }
     else if(inputLuna.checked){
         modalBatalla()
         hadaJugador = 2;
-        spanHadaJugador.innerHTML = inputLuna.id; 
+        spanHadaJugador.innerHTML = inputLuna.id; //se establece una sola fuente de verdad
         insertHadaJugador.appendChild(imagenLuna);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
@@ -141,7 +141,7 @@ function seleccionarHadaJugador(){
     else if(inputFleur.checked){
         modalBatalla()
         hadaJugador = 3;
-        spanHadaJugador.innerHTML = inputFleur.id; 
+        spanHadaJugador.innerHTML = inputFleur.id; //se establece una sola fuente de verdad
         insertHadaJugador.appendChild(imagenFleur);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
@@ -154,7 +154,7 @@ function seleccionarHadaJugador(){
 }
 
 function seleccionarHadaEnemigo(){
-    hadaAleatoria = aleatorio(1,3);
+    hadaAleatoria = aleatorio(0, hadas.length -1);
     //imagenes de las hadas
     let imagenPyraEnemi = document.createElement('img');
     imagenPyraEnemi.src = 'imagenes/pyra.png';
@@ -165,18 +165,23 @@ function seleccionarHadaEnemigo(){
     let imagenFleurEnemi = document.createElement('img');
     imagenFleurEnemi.src='imagenes/fleur.png';
 
-    if(hadaJugador !=1 && hadaAleatoria == 1){ //se asigna nombre e imagen de hada para el personaje del enemigo
-        spanHadaEnnemigo.innerHTML='Pyra';
-        insertHadaEnemigo.appendChild(imagenPyraEnemi);
-    }else if(hadaJugador != 2 && hadaAleatoria==2){
-        spanHadaEnnemigo.innerHTML='Luna';
-        insertHadaEnemigo.appendChild(imagenLunaEnemi);
-    }else if(hadaJugador != 3 && hadaAleatoria==3){
-        spanHadaEnnemigo.innerHTML='Fleur';
-        insertHadaEnemigo.appendChild(imagenFleurEnemi);
-    }else{
-        seleccionarHadaEnemigo()
-    }
+    spanHadaEnnemigo.innerHTML = hadas[hadaAleatoria].nombre //se establece una sola fuente de verdad
+    insertHadaEnemigo.innerHTML= `<img src=${hadas[hadaAleatoria].foto} 
+                                alt=${hadas[hadaAleatoria].nombre}>`
+
+    //se asigna nombre e imagen de hada para el personaje del enemigo
+    // if(hadaJugador !=1 && hadaAleatoria == 1){ 
+    //     spanHadaEnnemigo.innerHTML='Pyra';
+    //     insertHadaEnemigo.appendChild(imagenPyraEnemi);
+    // }else if(hadaJugador != 2 && hadaAleatoria==2){
+    //     spanHadaEnnemigo.innerHTML='Luna';
+    //     insertHadaEnemigo.appendChild(imagenLunaEnemi);
+    // }else if(hadaJugador != 3 && hadaAleatoria==3){
+    //     spanHadaEnnemigo.innerHTML='Fleur';
+    //     insertHadaEnemigo.appendChild(imagenFleurEnemi);
+    // }else{
+    //     seleccionarHadaEnemigo()
+    // }
 }
 
 function ataqueFuego(){
