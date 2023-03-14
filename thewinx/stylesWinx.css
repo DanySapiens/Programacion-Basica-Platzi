@@ -340,7 +340,7 @@ body{
 
 input{
     display: none;
-}
+}  
 
 input:checked + label{
     border: 3px solid #47b5ff;
@@ -353,7 +353,7 @@ input:checked + label{
     .tarjetas{
         flex-direction: column;
     }
- }/**************************************************************/
+}/**************************************************************/
 
 .swal2-title{
     padding: 0px;
