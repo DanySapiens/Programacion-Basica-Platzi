@@ -9,6 +9,7 @@ const botonFuego = document.getElementById('boton-fuego')
 const botonAgua = document.getElementById('boton-agua')
 const botonFlores = document.getElementById('boton-flores')
 const botonReiniciar = document.getElementById('boton-reiniciar')
+
 const seccionSeleccionarHada = document.getElementById('seleccionar-hada')
 const spanHadaJugador = document.getElementById('hada-jugador')
 const insertHadaJugador = document.getElementById('imagenHadaJugador')
@@ -24,30 +25,36 @@ const ataquesDelJugador = document.getElementById('ataques-del-Jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 //funcion detenerVs
 const textoVsFinJuego = document.getElementById('texto-vs-animacion')
+const contenedorTarjetas = document.getElementById('contenedor-tarjetas')
+
 
 //variables globales
 let hadas = []   // variable de arreglo
 let ataqueJugador 
 let ataqueEnemigo
+let opcionDeHadas
+let inputPyra
+let inputLuna
+let inputFleur
 let vidasJugador = 3
 let vidasEnemigo = 3
 let hadaJugador
 let hadaAleatoria
 
-class Hada{ //primera letra de la clase debe ir en MAYUSCULA
+class Hada{ //DECLARACION DE UNA CLASE, la primera letra de la clase debe ir en MAYUSCULA
     constructor(nombre, foto, vida){
-        this.nombre = nombre;
+        this.nombre = nombre; //this.nombre (variable interna que guarda el nombre)
         this.foto = foto;
         this.vida = vida;
         this.ataques = [];
     }
 }
 
-let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5);
+let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5); //crear (instancia) un objeto basado en la clase Hada 
 let luna = new Hada('Luna', 'imagenes/luna.png', 5);
 let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
 
-pyra.ataques.push(
+pyra.ataques.push( // inyecta los valores a la variable
     {nombre: '🔥', id: 'boton-fuego'},
     {nombre: '🔥', id: 'boton-fuego'},
     {nombre: '🔥', id: 'boton-fuego'},
@@ -71,12 +78,29 @@ fleur.ataques.push(
     {nombre: '💧', id: 'boton-agua'},
 )
 
+hadas.push(pyra,luna,fleur);
 
 
-function iniciarJuego(){ //funcion para iniciar el juego en cuanto cargue la pagina
-    seccionBatalla.style.display = 'none'; //oculta seccion de batalla personajes
-    seccionSeleccionarAtaque.style.display = 'none';//oculta seccion de ataques
-    seccionReiniciar.style.display = 'none';//oculta seccion de reinicio
+
+function iniciarJuego(){ 
+    seccionBatalla.style.display = 'none'; 
+    seccionSeleccionarAtaque.style.display = 'none';
+    seccionReiniciar.style.display = 'none';
+    hadas.forEach((Hada) =>{ //por cada uno de los elementos (hadas) dentro del arreglo hadas, haz lo siguiente...
+        opcionDeHadas = ` 
+        <input type="radio" name="hada" id=${Hada.nombre}> 
+        <label class="tarjeta-hada" for=${Hada.nombre}>
+            <p>${Hada.nombre}</p>
+            <img src=${Hada.foto} alt=${Hada.nombre}>
+        </label> 
+        `
+    contenedorTarjetas.innerHTML += opcionDeHadas;
+
+        inputPyra = document.getElementById('Pyra');
+        inputLuna = document.getElementById('Luna');
+        inputFleur = document.getElementById('Fleur');  
+
+    })
     botonHadaJugador.addEventListener("click",seleccionarHadaJugador); //se ejecuta la funcion cuando se hace click sobre el boton
 }
 
@@ -96,7 +120,7 @@ function seleccionarHadaJugador(){
     let imagenFleur = document.createElement('img');
     imagenFleur.src='imagenes/fleur.png';
 
-    if(pyra.checked){
+    if(inputPyra.checked){
         modalBatalla()
         hadaJugador = 1;
         spanHadaJugador.innerHTML ='Pyra';  //se establece la sintaxis del nombre en el HTML
@@ -105,7 +129,7 @@ function seleccionarHadaJugador(){
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo() 
     }
-    else if(luna.checked){
+    else if(inputLuna.checked){
         modalBatalla()
         hadaJugador = 2;
         spanHadaJugador.innerHTML ='Luna'; 
@@ -114,7 +138,7 @@ function seleccionarHadaJugador(){
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo() 
     }
-    else if(fleur.checked){
+    else if(inputFleur.checked){
         modalBatalla()
         hadaJugador = 3;
         spanHadaJugador.innerHTML ='Fleur'; 
