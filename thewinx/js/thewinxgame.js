@@ -165,12 +165,18 @@ function seleccionarHadaEnemigo(){
     let imagenFleurEnemi = document.createElement('img');
     imagenFleurEnemi.src='imagenes/fleur.png';
 
+
     spanHadaEnnemigo.innerHTML = hadas[hadaAleatoria].nombre //se establece una sola fuente de verdad
-    insertHadaEnemigo.innerHTML= `<img src=${hadas[hadaAleatoria].foto} 
-                                alt=${hadas[hadaAleatoria].nombre}>`
+    if((hadaJugador-1) != hadaAleatoria){
+        insertHadaEnemigo.innerHTML= `<img src=${hadas[hadaAleatoria].foto} 
+        alt=${hadas[hadaAleatoria].nombre}>`
+    }else{
+        seleccionarHadaEnemigo()
+    }
+
 
     //se asigna nombre e imagen de hada para el personaje del enemigo
-    // if(hadaJugador !=1 && hadaAleatoria == 1){ 
+    // if(inputPyra.id !=1 && hadaAleatoria == 1){ 
     //     spanHadaEnnemigo.innerHTML='Pyra';
     //     insertHadaEnemigo.appendChild(imagenPyraEnemi);
     // }else if(hadaJugador != 2 && hadaAleatoria==2){
