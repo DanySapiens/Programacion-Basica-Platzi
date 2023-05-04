@@ -91,6 +91,7 @@ body{
 }
 
 #boton-hada{
+    
     width: 108px;
     height: 34px;
     border-radius: 10px;
@@ -107,8 +108,6 @@ body{
     border: 3px solid #47b5ff;
     box-shadow: 1px 0px 20px 7px #47b5ff;
 }
-
-
 
 /*******SECCION BATALLA PERSONAJES******** */
 #batalla{
