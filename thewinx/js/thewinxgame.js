@@ -5,9 +5,6 @@ const seccionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const seccionReiniciar = document.getElementById('Reiniciar')
 const botonHadaJugador = document.getElementById("boton-hada")   //llama al elemento de HTML con el Id  
 //funcion seleccionarHadaJugador
-const botonFuego = document.getElementById('boton-fuego')
-const botonAgua = document.getElementById('boton-agua')
-const botonFlores = document.getElementById('boton-flores')
 const botonReiniciar = document.getElementById('boton-reiniciar')
 
 const seccionSeleccionarHada = document.getElementById('seleccionar-hada')
@@ -26,6 +23,7 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-Enemigo')
 //funcion detenerVs
 const textoVsFinJuego = document.getElementById('texto-vs-animacion')
 const contenedorTarjetas = document.getElementById('contenedor-tarjetas')
+const contenedorAtaques = document.getElementById('contenedor-ataques')
 
 
 //variables globales
@@ -39,7 +37,14 @@ let inputFleur
 let vidasJugador = 3
 let vidasEnemigo = 3
 let hadaJugador
+let ataquesHadas
+let personajeJugador
 let hadaAleatoria
+let botonFuego 
+let botonAgua 
+let botonFlores 
+let botones = []
+let ataqJugador = []
 
 class Hada{ //DECLARACION DE UNA CLASE, la primera letra de la clase debe ir en MAYUSCULA
     constructor(nombre, foto, vida){
@@ -54,35 +59,38 @@ let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5); //crear (instancia) un obje
 let luna = new Hada('Luna', 'imagenes/luna.png', 5);
 let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
 
+// let fuego = new Ataque('imagenes/fuego.png');
+// let agua = new Ataque('imagenes/agua.png');
+// let flores = new Ataque('imagenes/flor.png');
+
 pyra.ataques.push( // inyecta los valores a la variable
-    {nombre: '🔥', id: 'boton-fuego'},
-    {nombre: '🔥', id: 'boton-fuego'},
-    {nombre: '🔥', id: 'boton-fuego'},
-    {nombre: '💧', id: 'boton-agua'},
-    {nombre: '🌼', id: 'boton-flores'},
+    {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
+    {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
+    {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
+    {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
+    {nombre: '🌼', id: 'boton-flores', foto:'imagenes/flor.png'},
 )
 
 luna.ataques.push(
-    {nombre: '💧', id: 'boton-agua'},
-    {nombre: '💧', id: 'boton-agua'},
-    {nombre: '💧', id: 'boton-agua'},
-    {nombre: '🔥', id: 'boton-fuego'},
-    {nombre: '🌼', id: 'boton-flores'},
+    {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
+    {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
+    {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
+    {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
+    {nombre: '🌼', id: 'boton-flores', foto:'imagenes/flor.png'},
 )
 
 fleur.ataques.push(
-    {nombre: '🌼', id: 'boton-flores'},
-    {nombre: '🌼', id: 'boton-flores'},
-    {nombre: '🌼', id: 'boton-flores'},
-    {nombre: '🔥', id: 'boton-fuego'},
-    {nombre: '💧', id: 'boton-agua'},
+    {nombre: '🌼', id: 'boton-flores', foto:'imagenes/flor.png'},
+    {nombre: '🌼', id: 'boton-flores', foto:'imagenes/flor.png'},
+    {nombre: '🌼', id: 'boton-flores', foto:'imagenes/flor.png'},
+    {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
+    {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
 )
 
 hadas.push(pyra,luna,fleur);
 
-
-
 function iniciarJuego(){ 
+    
     seccionBatalla.style.display = 'none'; 
     seccionSeleccionarAtaque.style.display = 'none';
     seccionReiniciar.style.display = 'none';
@@ -105,9 +113,7 @@ function iniciarJuego(){
 }
 
 function seleccionarHadaJugador(){
-    botonFuego.addEventListener('click',ataqueFuego);
-    botonAgua.addEventListener('click',ataqueAgua);
-    botonFlores.addEventListener('click',ataqueFlores);
+    
     botonReiniciar.addEventListener('click',reiniciarJuego);
     seccionSeleccionarHada.style.display = 'none';//oculta seccion de elegir hada
     //imagenes de las hadas
@@ -124,6 +130,7 @@ function seleccionarHadaJugador(){
         modalBatalla()
         hadaJugador = 1;
         spanHadaJugador.innerHTML = inputPyra.id;  //se establece una sola fuente de verdad
+        personajeJugador = inputPyra.id;
         insertHadaJugador.appendChild(imagenPyra);
         seccionSeleccionarAtaque.style.display = 'flex'; 
         seccionBatalla.style.display = 'flex';
@@ -133,6 +140,7 @@ function seleccionarHadaJugador(){
         modalBatalla()
         hadaJugador = 2;
         spanHadaJugador.innerHTML = inputLuna.id; //se establece una sola fuente de verdad
+        personajeJugador = inputLuna.id;
         insertHadaJugador.appendChild(imagenLuna);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
@@ -142,6 +150,7 @@ function seleccionarHadaJugador(){
         modalBatalla()
         hadaJugador = 3;
         spanHadaJugador.innerHTML = inputFleur.id; //se establece una sola fuente de verdad
+        personajeJugador = inputFleur.id;
         insertHadaJugador.appendChild(imagenFleur);
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
@@ -151,43 +160,73 @@ function seleccionarHadaJugador(){
         alert("SELECCIONA UN HADA 🧚🏼‍♂️");
         seccionSeleccionarHada.style.display = 'flex';
     }
+
+    extraerAtaques(personajeJugador);
+    secuenciaAtaque()
+    
+}
+
+function extraerAtaques(personajeJugador){
+    let ataques
+    for (let i = 0; i < hadas.length; i++) {
+        if(personajeJugador === hadas[i].nombre){
+            ataques = hadas[i].ataques 
+        }
+        
+    }
+    mostrarAtaques(ataques)
+
+}
+
+function mostrarAtaques(ataques){
+    ataques.forEach((ataque) =>{
+        ataquesHadas = `
+        <button id=${ataque.id} class="boton-ataque BAtaque">
+        <img src=${ataque.foto} alt = ${ataque.nombre}>
+        </button>
+        `
+        contenedorAtaques.innerHTML += ataquesHadas
+    })
+
+    botonFuego = document.getElementById('boton-fuego')
+    botonAgua = document.getElementById('boton-agua')
+    botonFlores = document.getElementById('boton-flores')
+    botones = document.querySelectorAll('.BAtaque')  //selecciona todos los elementos que tienen la clase BAtaque
+
+    botonFuego.addEventListener('click',ataqueFuego);
+    botonAgua.addEventListener('click',ataqueAgua);
+    botonFlores.addEventListener('click',ataqueFlores);
+}
+
+function secuenciaAtaque(){
+    botones.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            if(e.target.id === 'boton-fuego'){
+                ataqJugador.push('FUEGO')
+                console.log(ataqJugador)
+            }else if(e.target.id === 'boton-agua'){
+                ataqJugador.push('AGUA')
+                console.log(ataqJugador)
+            }else{
+                ataqJugador.push('FLORES')
+                console.log(ataqJugador)
+            }
+        })
+    }) 
 }
 
 function seleccionarHadaEnemigo(){
     hadaAleatoria = aleatorio(0, hadas.length -1);
-    //imagenes de las hadas
-    let imagenPyraEnemi = document.createElement('img');
-    imagenPyraEnemi.src = 'imagenes/pyra.png';
-
-    let imagenLunaEnemi = document.createElement('img');
-    imagenLunaEnemi.src= 'imagenes/luna.png';
-
-    let imagenFleurEnemi = document.createElement('img');
-    imagenFleurEnemi.src='imagenes/fleur.png';
-
 
     spanHadaEnnemigo.innerHTML = hadas[hadaAleatoria].nombre //se establece una sola fuente de verdad
     if((hadaJugador-1) != hadaAleatoria){
         insertHadaEnemigo.innerHTML= `<img src=${hadas[hadaAleatoria].foto} 
         alt=${hadas[hadaAleatoria].nombre}>`
+        
     }else{
         seleccionarHadaEnemigo()
     }
 
-
-    //se asigna nombre e imagen de hada para el personaje del enemigo
-    // if(inputPyra.id !=1 && hadaAleatoria == 1){ 
-    //     spanHadaEnnemigo.innerHTML='Pyra';
-    //     insertHadaEnemigo.appendChild(imagenPyraEnemi);
-    // }else if(hadaJugador != 2 && hadaAleatoria==2){
-    //     spanHadaEnnemigo.innerHTML='Luna';
-    //     insertHadaEnemigo.appendChild(imagenLunaEnemi);
-    // }else if(hadaJugador != 3 && hadaAleatoria==3){
-    //     spanHadaEnnemigo.innerHTML='Fleur';
-    //     insertHadaEnemigo.appendChild(imagenFleurEnemi);
-    // }else{
-    //     seleccionarHadaEnemigo()
-    // }
 }
 
 function ataqueFuego(){
