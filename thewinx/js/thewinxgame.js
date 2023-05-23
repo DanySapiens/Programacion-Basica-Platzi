@@ -165,10 +165,7 @@ function seleccionarHadaJugador(){
     else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️");
         seccionSeleccionarHada.style.display = 'flex';
-    }
-
-    
-    
+    }  
 }
 
 function extraerAtaques(personajeJugador){
@@ -208,21 +205,31 @@ function secuenciaAtaque(){
         boton.addEventListener('click', (e) => {
             if(e.target.alt === '🔥' || e.target.id === 'boton-fuego'){ //se agregan dos casos de evento cuando se hace click en a imagen y cuando se hace clic en el boton
                ataqJugador.push('FUEGO')
+               deshabilitarBotones(boton)
                console.log(ataqJugador)
             }else if(e.target.alt === '💧' || e.target.id === 'boton-agua'){
                 ataqJugador.push('AGUA')
+                deshabilitarBotones(boton)
                 console.log(ataqJugador)
             }else{
                 ataqJugador.push('FLORES')
+                deshabilitarBotones(boton)
                 console.log(ataqJugador)
             }
         })
     }) 
 }
 
+function deshabilitarBotones(boton){
+    boton.disabled = true;
+    boton.style.pointerEvents = 'none';
+    boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+    boton.style.border = '3px solid #653d57';
+    boton.style.boxShadow ='1px 0px 20px 7px #53454f';
+}
+
 function seleccionarHadaEnemigo(){
     hadaAleatoria = aleatorio(0, hadas.length -1);
-
     spanHadaEnnemigo.innerHTML = hadas[hadaAleatoria].nombre //se establece una sola fuente de verdad
     if((hadaJugador-1) != hadaAleatoria){
         insertHadaEnemigo.innerHTML= `<img src=${hadas[hadaAleatoria].foto} 
@@ -231,7 +238,6 @@ function seleccionarHadaEnemigo(){
     }else{
         seleccionarHadaEnemigo()
     }
-
 }
 
 function ataqueFuego(){
