@@ -179,7 +179,7 @@ function extraerAtaques(personajeJugador){
 }
 
 function mostrarAtaques(ataques){
-    ataques.forEach((ataque) =>{
+    ataques.forEach((ataque) => {
         ataquesHadas = `
         <button id=${ataque.id} class="boton-ataque BAtaque">
         <img src=${ataque.foto} alt = ${ataque.nombre}>
@@ -191,11 +191,11 @@ function mostrarAtaques(ataques){
     botonFuego = document.getElementById('boton-fuego')
     botonAgua = document.getElementById('boton-agua')
     botonFlores = document.getElementById('boton-flores')
-    botones = document.querySelectorAll('.BAtaque')  //selecciona todos los elementos que tienen la clase BAtaque
-
+/*     botones = document.querySelectorAll('.BAtaque')  //selecciona todos los elementos que tienen la clase BAtaque
+ */
     botonFuego.addEventListener('click',ataqueFuego);
     botonAgua.addEventListener('click',ataqueAgua);
-    botonFlores.addEventListener('click',ataqueFlores);
+    botonFlores.addEventListener('click',ataqueFlores); 
 }
 
 function secuenciaAtaque(){
@@ -204,28 +204,28 @@ function secuenciaAtaque(){
             if(e.target.id === 'boton-fuego'){
                 ataqJugador.push('FUEGO')
                 console.log(ataqJugador)
-                boton.disabled = true;
+               /*  boton.disabled = true;
                 //se cambia el style de los botones para simular estar deshabilitado
                 boton.style.pointerEvents = 'none';
                 boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
                 boton.style.border = '3px solid #653d57';
-                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f'; */
             }else if(e.target.id === 'boton-agua'){
                 ataqJugador.push('AGUA')
                 console.log(ataqJugador)
-                boton.disabled = true;
+               /*  boton.disabled = true;
                 boton.style.pointerEvents = 'none';
                 boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
                 boton.style.border = '3px solid #653d57';
-                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f'; */
             }else{
                 ataqJugador.push('FLORES')
                 console.log(ataqJugador)
-                boton.disabled = true;
+               /*  boton.disabled = true;
                 boton.style.pointerEvents = 'none';
                 boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
                 boton.style.border = '3px solid #653d57';
-                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f'; */
             }
         })
     }) 
