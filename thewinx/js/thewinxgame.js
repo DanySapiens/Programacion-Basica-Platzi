@@ -204,12 +204,28 @@ function secuenciaAtaque(){
             if(e.target.id === 'boton-fuego'){
                 ataqJugador.push('FUEGO')
                 console.log(ataqJugador)
+                boton.disabled = true;
+                //se cambia el style de los botones para simular estar deshabilitado
+                boton.style.pointerEvents = 'none';
+                boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+                boton.style.border = '3px solid #653d57';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
             }else if(e.target.id === 'boton-agua'){
                 ataqJugador.push('AGUA')
                 console.log(ataqJugador)
+                boton.disabled = true;
+                boton.style.pointerEvents = 'none';
+                boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+                boton.style.border = '3px solid #653d57';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
             }else{
                 ataqJugador.push('FLORES')
                 console.log(ataqJugador)
+                boton.disabled = true;
+                boton.style.pointerEvents = 'none';
+                boton.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+                boton.style.border = '3px solid #653d57';
+                boton.style.boxShadow ='1px 0px 20px 7px #53454f';
             }
         })
     }) 
@@ -293,23 +309,22 @@ function crearMensaje(resulCombate){ //crea parrafo correspondiente por cada ata
 }
 
 function crearMensajeFinal(resultadoFinal){ 
-    botonFuego.disabled = true;
-    //se cambia el style de los botones para simular estar deshabilitado
-    botonFuego.style.pointerEvents = 'none';
-    botonFuego.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
-    botonFuego.style.border = '3px solid #653d57';
-    botonFuego.style.boxShadow ='1px 0px 20px 7px #53454f';
+    // botonFuego.disabled = true;
+    // botonFuego.style.pointerEvents = 'none';
+    // botonFuego.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+    // botonFuego.style.border = '3px solid #653d57';
+    // botonFuego.style.boxShadow ='1px 0px 20px 7px #53454f';
 
-    botonAgua.style.pointerEvents = 'none';
-    botonAgua.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
-    botonAgua.style.border = '3px solid #653d57';
-    botonAgua.style.boxShadow ='1px 0px 20px 7px #53454f';
+    // botonAgua.style.pointerEvents = 'none';
+    // botonAgua.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+    // botonAgua.style.border = '3px solid #653d57';
+    // botonAgua.style.boxShadow ='1px 0px 20px 7px #53454f';
 
-    botonFlores.disabled = true;
-    botonFlores.style.pointerEvents ='none';
-    botonFlores.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
-    botonFlores.style.border = '3px solid #653d57';
-    botonFlores.style.boxShadow ='1px 0px 20px 7px #53454f';
+    // botonFlores.disabled = true;
+    // botonFlores.style.pointerEvents ='none';
+    // botonFlores.style.background = 'linear-gradient(rgb(4, 4, 4), #5d1a45)';
+    // botonFlores.style.border = '3px solid #653d57';
+    // botonFlores.style.boxShadow ='1px 0px 20px 7px #53454f';
      
     seccionReiniciar.style.display = 'block';//visualiza seccion de reinicio
 

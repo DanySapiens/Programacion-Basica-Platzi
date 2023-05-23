@@ -90,8 +90,7 @@ body{
     cursor: pointer;
 }
 
-#boton-hada{
-    
+#boton-hada{ 
     width: 108px;
     height: 34px;
     border-radius: 10px;
@@ -133,8 +132,7 @@ body{
 }
 
 .ataque-jugador, .ataque-enemigo{
-    border-radius: 15px;
-    
+    border-radius: 15px;   
 } 
 
 .titulo-jugador{
