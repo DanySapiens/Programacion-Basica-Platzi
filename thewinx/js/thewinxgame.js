@@ -135,6 +135,8 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex'; 
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo() 
+        extraerAtaques(personajeJugador);
+        secuenciaAtaque()
     }
     else if(inputLuna.checked){
         modalBatalla()
@@ -145,6 +147,8 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo() 
+        extraerAtaques(personajeJugador);
+        secuenciaAtaque()
     }
     else if(inputFleur.checked){
         modalBatalla()
@@ -155,14 +159,15 @@ function seleccionarHadaJugador(){
         seccionSeleccionarAtaque.style.display = 'flex';
         seccionBatalla.style.display = 'flex';
         seleccionarHadaEnemigo()
+        extraerAtaques(personajeJugador);
+        secuenciaAtaque()
     }
     else{
         alert("SELECCIONA UN HADA 🧚🏼‍♂️");
         seccionSeleccionarHada.style.display = 'flex';
     }
 
-    extraerAtaques(personajeJugador);
-    secuenciaAtaque()
+    
     
 }
 
