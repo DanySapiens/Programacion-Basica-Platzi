@@ -25,13 +25,16 @@ const textoVsFinJuego = document.getElementById('texto-vs-animacion')
 const contenedorTarjetas = document.getElementById('contenedor-tarjetas')
 const contenedorAtaques = document.getElementById('contenedor-ataques')
 
+const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
+
 
 //variables globales
 let hadas = []   // variable de arreglo
 let ataqueJugador 
 let ataqueEnemigo
 let opcionDeHadas
-let inputPyra
+let inputDalton
 let inputLuna
 let inputFleur
 let vidasJugador = 3
@@ -45,6 +48,11 @@ let botonAgua
 let botonFlores 
 let botones = []
 let ataqJugador = []
+let lienzo = mapa.getContext("2d") //lienzo en 2d para trabajar sobre el canvas
+let intervalo
+let mapaBackground = new Image()
+//mapaBackground.src = 'imagenes/fondo-hadas.jpg'
+mapaBackground.src = 'imagenes/campus.jpg'
 
 class Hada{ //DECLARACION DE UNA CLASE, la primera letra de la clase debe ir en MAYUSCULA
     constructor(nombre, foto, vida){
@@ -52,10 +60,18 @@ class Hada{ //DECLARACION DE UNA CLASE, la primera letra de la clase debe ir en 
         this.foto = foto;
         this.vida = vida;
         this.ataques = [];
+        this.x = 10;
+        this.y = 450;
+        this.ancho = 60;
+        this.alto = 140;
+        this.mapaFoto = new Image();
+        this.mapaFoto.src = foto;
+        this.velocidadX = 0;
+        this.velocidadY = 0;
     }
 }
 
-let pyra = new Hada('Pyra', 'imagenes/pyra.png', 5); //crear (instancia) un objeto basado en la clase Hada 
+let Dalton = new Hada('Dalton', 'imagenes/dalton.png', 5); //crear (instancia) un objeto basado en la clase Hada 
 let luna = new Hada('Luna', 'imagenes/luna.png', 5);
 let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
 
@@ -63,7 +79,7 @@ let fleur = new Hada('Fleur', 'imagenes/fleur.png', 5);
 // let agua = new Ataque('imagenes/agua.png');
 // let flores = new Ataque('imagenes/flor.png');
 
-pyra.ataques.push( // inyecta los valores a la variable
+Dalton.ataques.push( // inyecta los valores a la variable
     {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
     {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
     {nombre: '🔥', id: 'boton-fuego', foto: 'imagenes/fuego.png'},
@@ -87,12 +103,14 @@ fleur.ataques.push(
     {nombre: '💧', id: 'boton-agua', foto: 'imagenes/agua.png'},
 )
 
-hadas.push(pyra,luna,fleur);
+hadas.push(Dalton,luna,fleur);
 
 function iniciarJuego(){ 
     
     seccionBatalla.style.display = 'none'; 
     seccionSeleccionarAtaque.style.display = 'none';
+    sectionVerMapa.style.display = 'none'
+
     seccionReiniciar.style.display = 'none';
     hadas.forEach((Hada) =>{ //por cada uno de los elementos (hadas) dentro del arreglo hadas, haz lo siguiente...
         opcionDeHadas = ` 
@@ -104,7 +122,7 @@ function iniciarJuego(){
         `
     contenedorTarjetas.innerHTML += opcionDeHadas;
 
-        inputPyra = document.getElementById('Pyra');
+        inputDalton = document.getElementById('Dalton');
         inputLuna = document.getElementById('Luna');
         inputFleur = document.getElementById('Fleur');  
 
@@ -116,9 +134,10 @@ function seleccionarHadaJugador(){
     
     botonReiniciar.addEventListener('click',reiniciarJuego);
     seccionSeleccionarHada.style.display = 'none';//oculta seccion de elegir hada
+    
     //imagenes de las hadas
-    let imagenPyra = document.createElement('img');
-    imagenPyra.src='imagenes/pyra.png';
+    let imagenDalton = document.createElement('img');
+    imagenDalton.src='imagenes/Dalton.png';
 
     let imagenLuna = document.createElement('img');
     imagenLuna.src='imagenes/luna.png';
@@ -126,17 +145,25 @@ function seleccionarHadaJugador(){
     let imagenFleur = document.createElement('img');
     imagenFleur.src='imagenes/fleur.png';
 
-    if(inputPyra.checked){
-        modalBatalla()
-        hadaJugador = 1;
-        spanHadaJugador.innerHTML = inputPyra.id;  //se establece una sola fuente de verdad
-        personajeJugador = inputPyra.id;
-        insertHadaJugador.appendChild(imagenPyra);
-        seccionSeleccionarAtaque.style.display = 'flex'; 
-        seccionBatalla.style.display = 'flex';
-        seleccionarHadaEnemigo() 
+   
+    if(inputDalton.checked){
+        //modalBatalla()
+       //hadaJugador = 1;
+        //spanHadaJugador.innerHTML = inputDalton.id;  //se establece una sola fuente de verdad
+        //personajeJugador = inputDalton.id;
+       // insertHadaJugador.appendChild(imagenDalton);
+        // seccionSeleccionarAtaque.style.display = 'flex'; 
+        // seccionBatalla.style.display = 'flex';
+        sectionVerMapa.style.display = 'flex';
+        iniciarMapa();
+
+       // let imagenDalton = new Image()
+        //imagenDalton.src = Dalton.foto;
+        //lienzo.fillRect(5,15,20,40); //crea un rectangulo dentro del canvas en 5x, 15y, ancho 20 y alto 40
+       
+        /*seleccionarHadaEnemigo() 
         extraerAtaques(personajeJugador);
-        secuenciaAtaque()
+        secuenciaAtaque()*/
     }
     else if(inputLuna.checked){
         modalBatalla()
@@ -345,6 +372,83 @@ function reiniciarJuego(){ //funcion para refrescar la pagina
 function aleatorio(min, max){ //la funcion Math.random devuelve un numero flotante entre el 0 y 1
     return Math.floor(Math.random() * (max - min + 1) + min); //formula para calcular un numero entero aleatorio en un rango
 }
+
+function pintarCanvas(){
+    Dalton.x = Dalton.x + Dalton.velocidadX;
+    Dalton.y = Dalton.y + Dalton.velocidadY;
+    lienzo.clearRect(0,0,mapa.width,mapa.height);
+    lienzo.drawImage(
+        mapaBackground,
+        0,
+        0,
+        mapa.width,
+        mapa.height
+    );
+    lienzo.drawImage( //carga imagen en el canva
+        Dalton.mapaFoto,
+        Dalton.x,
+        Dalton.y,
+        Dalton.ancho,
+        Dalton.alto
+    );
+}
+
+function moverDerecha(){
+    Dalton.velocidadX = 5;
+   
+}
+
+function moverIzquierda(){
+    Dalton.velocidadX = -5;
+  
+}
+
+function moverAbajo(){
+    Dalton.velocidadY = 5;
+    
+}
+
+function moverArriba(){
+    Dalton.velocidadY = -5;
+  
+}
+
+function detenerMovimiento(){
+    Dalton.velocidadX = 0;
+    Dalton.velocidadY = 0;
+}
+
+function sePresionoUnaTecla(event){
+    switch (event.key) {
+        case 'ArrowUp':
+            moverArriba();
+            break;
+
+        case 'ArrowDown':
+            moverAbajo();
+            break;
+        
+        case 'ArrowLeft':
+            moverIzquierda();
+            break;
+        
+        case 'ArrowRight':
+            moverDerecha();
+            break;
+
+        default:
+            break;
+    }
+}
+
+function iniciarMapa(){
+    mapa.width = 1000;
+    mapa.height = 600;
+    intervalo = setInterval(pintarCanvas,50); //funcion a ejecutar cada 50 milisegundos
+    window.addEventListener('keydown', sePresionoUnaTecla);
+    window.addEventListener('keyup', detenerMovimiento);
+}
+
 window.addEventListener('load', iniciarJuego); //se activa cuando se carga toda la pagina
     
 

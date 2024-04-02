@@ -25,6 +25,18 @@ body{
     background-size: 100vh 100vh;*/
 }
 
+#ver-mapa{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapa{
+    border: 2px solid white;
+    
+}
+
 .titulo{
     color:#D800A6;
     font-family: 'Rampart One', cursive;
@@ -36,6 +48,20 @@ body{
     justify-content: center;
     text-align: center;
     margin-bottom: 24px;
+}
+
+#titulo-d{
+    color:#D800A6;
+    font-family: 'Rampart One', cursive;
+    font-size: 40px;
+    height: 122px;
+    margin-block-end: auto;
+    text-shadow: 0px 0px 20px #d500a3;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: unset;
 }
 
 /* SECCION SELECCIONAR HADA */
